@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Mycelium Foundation — a decentralized network, grown not built</title>
+<meta name="description" content="The Mycelium Foundation is a nonprofit supporting the Mycelium Network: a decentralized network designed to be fast, inexpensive and scalable, with principles learned from fungal networks and ecological farming.">
+<meta name="theme-color" content="#F3F4EE">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="./site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Mycelium Foundation">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+<link rel="preload" href="./assets/StyreneA-Light-CDtqHJvh.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="./assets/StyreneA-Regular-BPtTho4G.otf" as="font" type="font/otf" crossorigin>
+<script>
+/* Before first paint, and deliberately not in the module: a returning
+   reader who chose foxfire must not see a daylight page first. Also
+   arms the intro — but restores everything if the module never runs. */
+(function () {
+  var r = document.documentElement
+  try {
+    var t = localStorage.getItem('myc-theme')
+    if (t === 'dark' || t === 'light') r.dataset.theme = t
+    else if (matchMedia('(prefers-color-scheme: dark)').matches) r.dataset.theme = 'dark'
+  } catch (e) {}
+  r.classList.add('js')
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !/[?&]static/.test(location.search)) {
+    r.classList.add('intro')
+    setTimeout(function () { if (!r.dataset.booted) r.classList.remove('intro', 'js') }, 3000)
+  }
+})()
+</script>
+
+<meta property="og:title" content="The Mycelium Foundation — grown, not built">
+<meta property="og:description" content="A nonprofit supporting the Mycelium Network: a decentralized network designed the way the oldest networks on Earth already work.">
+  <script type="module" crossorigin src="./assets/main-CCtCKrPR.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-CNGL3ekW.css">
+</head>
+<body data-page="home">
+
+<canvas class="field" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- the rail: the whole site as one hypha; the current page branches into its sections -->
+<header class="rail" data-myc-ignore>
+  <a class="brand" data-myc-mask href="./" aria-label="The Mycelium Foundation, home">
+    <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 40C26 33 19 24 13 16M32 40C38 33 45 24 51 16M32 40C32.5 46 31.6 52 32 58M13 16C12.6 30 11 44 10 57M51 16C51.4 30 53 44 54 57M13 16C11 12.6 9 9.6 6.5 6.5M51 16C53 12.6 55 9.6 57.5 6.5"/><g fill="currentColor" stroke="none"><circle cx="13" cy="16" r="4.4"/><circle cx="51" cy="16" r="4.4"/><circle cx="32" cy="40" r="4.4"/></g></svg>
+    <span class="brand__name">Mycelium<br>Foundation</span>
+  </a>
+  <nav class="rail__nav" aria-label="Site">
+    <span class="rail__thread" aria-hidden="true"></span>
+    <span class="rail__pulse" aria-hidden="true">●</span>
+    <ol class="rail__pages" data-myc-mask>
+      <li data-page="home"><a href="./"><span class="rail__knot" aria-hidden="true">├─</span>Home</a></li>
+      <li data-page="network"><a href="./network.html"><span class="rail__knot" aria-hidden="true">├─</span>Field guide</a></li>
+      <li data-page="research"><a href="./research.html"><span class="rail__knot" aria-hidden="true">├─</span>Research</a></li>
+      <li data-page="grants"><a href="./grants.html"><span class="rail__knot" aria-hidden="true">├─</span>Grants</a></li>
+      <li data-page="community"><a href="./community.html"><span class="rail__knot" aria-hidden="true">├─</span>Community</a></li>
+      <li data-page="notes"><a href="./notes.html"><span class="rail__knot" aria-hidden="true">├─</span>Field notes</a></li>
+      <li data-page="about"><a href="./about.html"><span class="rail__knot" aria-hidden="true">├─</span>About</a></li>
+      <li data-page="faq"><a href="./faq.html"><span class="rail__knot" aria-hidden="true">└─</span>FAQ</a></li>
+    </ol>
+  </nav>
+</header>
+
+<div class="corner corner--tr" data-myc-ignore data-myc-mask>
+  <button class="btn-bracket theme-toggle" type="button" aria-pressed="false" aria-label="Switch to foxfire theme"><span class="br" aria-hidden="true">[</span><span class="theme-toggle__glyph" aria-hidden="true">☾</span><span class="br" aria-hidden="true">]</span></button>
+  <a class="btn btn--small" href="./network.html" data-myc-attract><span>Learn more</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+  <button class="menu-btn btn-bracket" type="button" aria-expanded="false" aria-controls="menu"><span class="br" aria-hidden="true">[</span>menu<span class="br" aria-hidden="true">]</span></button>
+</div>
+
+<div class="menu" id="menu" hidden data-myc-ignore>
+  <pre class="menu__tree" aria-hidden="true">mycelium.foundation
+ │</pre>
+  <nav aria-label="Site (menu)">
+    <ol class="menu__pages">
+      <li data-page="home"><a href="./"><span aria-hidden="true">├── </span>Home</a></li>
+      <li data-page="network"><a href="./network.html"><span aria-hidden="true">├── </span>Field guide</a></li>
+      <li data-page="research"><a href="./research.html"><span aria-hidden="true">├── </span>Research</a></li>
+      <li data-page="grants"><a href="./grants.html"><span aria-hidden="true">├── </span>Grants</a></li>
+      <li data-page="community"><a href="./community.html"><span aria-hidden="true">├── </span>Community</a></li>
+      <li data-page="notes"><a href="./notes.html"><span aria-hidden="true">├── </span>Field notes</a></li>
+      <li data-page="about"><a href="./about.html"><span aria-hidden="true">├── </span>About</a></li>
+      <li data-page="faq"><a href="./faq.html"><span aria-hidden="true">└── </span>FAQ</a></li>
+    </ol>
+  </nav>
+</div>
+
+<div class="hud" data-myc-ignore data-myc-mask data-no-spore>
+  <span class="hud__stats" aria-hidden="true">hyphae <b data-hud="hyphae">0</b> · tips <b data-hud="tips">0</b> · fusions <b data-hud="fusions">0</b> · pulses <b data-hud="pulses">0</b></span>
+  <button class="btn-bracket hud__tune" type="button" aria-label="Open the field tuner"><span class="br" aria-hidden="true">[</span>tune<span class="br" aria-hidden="true">]</span></button>
+</div>
+<p class="status" data-myc-ignore data-myc-mask><span class="status__dot" aria-hidden="true"></span>Research phase · testnet in preparation</p>
+
+
+<main id="main">
+
+  <!-- ─────────────── hero ─────────────── -->
+  <section id="top" class="hero" data-myc-state="germinate">
+    <div class="hero__copy">
+      <p class="eyebrow" data-intro="1">The Mycelium Foundation</p>
+      <h1 class="hero__title" data-intro="2">Grown,<br>not built.</h1>
+      <p class="lede hero__lede" data-intro="3">The Mycelium Foundation is a nonprofit that supports the Mycelium Network: a decentralized network designed to be fast, inexpensive and scalable, and to stay simple as it grows. We take our design cues from networks that have run beneath the soil for more than 400 million years.</p>
+      <div class="actions" data-intro="4">
+        <a class="btn" href="#network" data-myc-attract><span>Learn about the network</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+        <a class="btn-bracket" href="#principles"><span class="br" aria-hidden="true">[</span>Read our principles<span class="br" aria-hidden="true">]</span></a>
+      </div>
+    </div>
+    <figure class="hero__mark" data-myc-mark aria-hidden="true">
+      <svg class="hero__svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M32 40C26 33 19 24 13 16M32 40C38 33 45 24 51 16M32 40C32.5 46 31.6 52 32 58M13 16C12.6 30 11 44 10 57M51 16C51.4 30 53 44 54 57M13 16C11 12.6 9 9.6 6.5 6.5M51 16C53 12.6 55 9.6 57.5 6.5"/><g fill="currentColor" stroke="none"><circle cx="13" cy="16" r="3.6"/><circle cx="51" cy="16" r="3.6"/><circle cx="32" cy="40" r="3.6"/></g></svg>
+    </figure>
+    <p class="hero__hint mono" data-intro="5" data-myc-guard>move to feed the network<span class="hide-touch"> · click to plant a spore</span></p>
+  </section>
+
+  <!-- ─────────────── beneath ─────────────── -->
+  <section id="beneath" class="section beneath" data-nav="Beneath" data-myc-state="forage" aria-labelledby="beneath-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Beneath the forest floor</p>
+      <h2 id="beneath-h" class="display-xl" data-reveal>Under every forest runs a network with no center.</h2>
+      <div class="split">
+        <div class="split__a">
+          <p class="lede" data-reveal>Mycelium, the branching body of a fungus, threads through soil in every direction at once. It finds food, trades with plant roots and routes around damage, and it has no single point that can fail.</p>
+          <p data-reveal>No brain makes those decisions. Each hyphal tip follows a few local rules, and the colony’s intelligence comes from everyone following them at once.</p>
+        </div>
+        <ol class="rules split__b" data-reveal>
+          <li class="rule">
+            <span class="rule__glyph mono" aria-hidden="true" data-glyph="explore">-·</span>
+            <h3>Explore</h3>
+            <p>Tips grow outward in all directions, sampling the ground ahead.</p>
+          </li>
+          <li class="rule">
+            <span class="rule__glyph mono" aria-hidden="true" data-glyph="fuse">&gt;+&lt;</span>
+            <h3>Fuse</h3>
+            <p>When two threads meet, they join. A branching tree becomes a mesh, with more than one path between any two points.</p>
+          </li>
+          <li class="rule">
+            <span class="rule__glyph mono" aria-hidden="true" data-glyph="reinforce">-=≡</span>
+            <h3>Reinforce</h3>
+            <p>Paths that carry the most flow grow thicker. The network learns its own best routes.</p>
+          </li>
+          <li class="rule">
+            <span class="rule__glyph mono" aria-hidden="true" data-glyph="recycle">:. </span>
+            <h3>Recycle</h3>
+            <p>Paths that carry nothing are broken down, and their material moves to where growth is happening.</p>
+          </li>
+        </ol>
+      </div>
+      <p class="note" data-reveal>In 2007, Bebber, Boddy, Fricker and colleagues found that a woodland fungus following rules like these became more efficient and more robust as it grew, while its relative cost fell. That is the property we want in a ledger.</p>
+      <p class="callout mono" data-reveal><span aria-hidden="true">↳ </span>The field behind this page runs those four rules. Hold your cursor still and the network will reach for&nbsp;it.</p>
+    </div>
+  </section>
+
+  <!-- ─────────────── the network ─────────────── -->
+  <section id="network" class="section network" data-nav="Network" data-myc-state="mesh" aria-labelledby="network-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>The Mycelium Network</p>
+      <h2 id="network-h" class="display-xl" data-reveal>Designed like a network that already works.</h2>
+      <p class="lede narrow" data-reveal>The Mycelium Network is a decentralized ledger, currently in research. Our aim is to match the most advanced networks on speed, cost and scale, with a design that is easier to reason about and principles that are written down before the code.</p>
+
+      <div class="goals">
+        <article class="card goal" data-myc-frame>
+          <p class="card__label mono">Fast</p>
+          <h3>The shortest healthy path.</h3>
+          <p>Designed for quick finality. Messages travel the routes that are already carrying flow, the way nutrients move along a mycelium’s busiest cords.</p>
+          <p class="card__foot mono">Precedent · translocation along reinforced hyphae</p>
+        </article>
+        <article class="card goal" data-myc-frame>
+          <p class="card__label mono">Inexpensive</p>
+          <h3>Nothing pays for idle paths.</h3>
+          <p>A fungus doesn’t maintain threads that carry nothing. Users shouldn’t pay for capacity they don’t use either: low cost should come from the design, not from subsidies.</p>
+          <p class="card__foot mono">Precedent · recycling of unused hyphae</p>
+        </article>
+        <article class="card goal" data-myc-frame>
+          <p class="card__label mono">Scalable</p>
+          <h3>Grow at the edge.</h3>
+          <p>A mycelium grows by adding tips at its frontier, not by enlarging a center. Capacity should grow as participants join, without a core everyone has to pass through.</p>
+          <p class="card__foot mono">Precedent · apical growth and branching</p>
+        </article>
+        <article class="card goal" data-myc-frame>
+          <p class="card__label mono">Elegant</p>
+          <h3>Few rules, everywhere.</h3>
+          <p>Four local rules produce a whole organism. The fewer moving parts a protocol has, the fewer ways it can fail, and the easier it is for anyone to verify.</p>
+          <p class="card__foot mono">Precedent · colony behavior from local rules</p>
+        </article>
+      </div>
+      <p class="note mono-note" data-reveal>These are design goals for a network in research, not benchmarks. We will publish measurements when there is something to measure.</p>
+
+      <article class="card teaser" data-myc-frame data-myc-attract>
+        <div class="teaser__copy">
+          <p class="card__label mono">Field guide</p>
+          <h3>The network, explained as a living diagram.</h3>
+          <p>A field guide to the Mycelium Network’s architecture: how nodes find each other, how agreement forms, and where value flows. Drawn in the same living ASCII as this page.</p>
+          <a class="btn" href="./network.html"><span>Open the field guide</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+        </div>
+<pre class="teaser__art mono" aria-hidden="true">
+   o───o         o
+    \   \       /
+     o───@─────o───o
+        / \     \
+   o───o   o─────@
+        \       / \
+         o─────o   o
+</pre>
+      </article>
+    </div>
+  </section>
+
+  <!-- ─────────────── principles ─────────────── -->
+  <section id="principles" class="section principles" data-nav="Principles" data-myc-state="cord" aria-labelledby="principles-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Principles</p>
+      <h2 id="principles-h" class="display-xl" data-reveal>Written down before the code.</h2>
+      <p class="lede narrow" data-reveal>Most of these come from farmers and biologists rather than engineers. When we disagree about the protocol, we’ll settle it by asking which choice the principles favor.</p>
+
+      <ol class="canon">
+        <li class="canon__item" data-reveal>
+          <span class="canon__num mono" aria-hidden="true">I</span>
+          <h3>Pay attention first.</h3>
+          <p class="canon__src mono">“Pay more attention and do less work.” · Helen Atthowe</p>
+          <p>Measure the running network before changing it. Every proposal starts from observation, not ambition.</p>
+        </li>
+        <li class="canon__item" data-reveal>
+          <span class="canon__num mono" aria-hidden="true">II</span>
+          <h3>Disturb the ground as little as possible.</h3>
+          <p class="canon__src mono">After Atthowe’s no-till practice and Masanobu Fukuoka</p>
+          <p>Changes to the core protocol should be rare, small and deliberate. Stability compounds, like soil.</p>
+        </li>
+        <li class="canon__item" data-reveal>
+          <span class="canon__num mono" aria-hidden="true">III</span>
+          <h3>Keep a living root in the soil.</h3>
+          <p class="canon__src mono">Atthowe · keep roots growing year-round</p>
+          <p>The base layer never stops. Liveness comes first, so everything built on it can depend on&nbsp;it.</p>
+        </li>
+        <li class="canon__item" data-reveal>
+          <span class="canon__num mono" aria-hidden="true">IV</span>
+          <h3>Diversity above and below ground.</h3>
+          <p class="canon__src mono">Atthowe’s first principle</p>
+          <p>Many independent clients, operators and places. A monoculture fails all at once.</p>
+        </li>
+        <li class="canon__item" data-reveal>
+          <span class="canon__num mono" aria-hidden="true">V</span>
+          <h3>Recycle rather than import.</h3>
+          <p class="canon__src mono">Atthowe · Sir Albert Howard’s Law of Return</p>
+          <p>The network should pay for its own upkeep from its own activity, and return value to the commons that sustains&nbsp;it.</p>
+        </li>
+        <li class="canon__item" data-reveal>
+          <span class="canon__num mono" aria-hidden="true">VI</span>
+          <h3>Reward fair exchange, in both directions.</h3>
+          <p class="canon__src mono">Kiers et al., Science, 2011</p>
+          <p>Plants and fungi each reward the partners that trade most fairly, so control runs both ways. Incentives should too, so no participant can be captured by another.</p>
+        </li>
+        <li class="canon__item" data-reveal>
+          <span class="canon__num mono" aria-hidden="true">VII</span>
+          <h3>Weed selectively.</h3>
+          <p class="canon__src mono">Atthowe · selective weeding</p>
+          <p>Governance removes only what threatens the system. Everything else is habitat.</p>
+        </li>
+        <li class="canon__item" data-reveal>
+          <span class="canon__num mono" aria-hidden="true">VIII</span>
+          <h3>Tithe to ecology.</h3>
+          <p class="canon__src mono">Helen Atthowe and Carl Rosato</p>
+          <p>Atthowe and Rosato accepted a small share of crop damage as the price of a farm full of life. We will budget for small, bounded inefficiencies in exchange for resilience.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ─────────────── lineage ─────────────── -->
+  <section id="lineage" class="section lineage" data-nav="Lineage" data-myc-state="soil" aria-labelledby="lineage-h">
+    <div class="wrap">
+      <div class="field-notes">
+        <div class="field-notes__head">
+          <p class="eyebrow" data-reveal>In the field · Helen Atthowe</p>
+          <h2 id="lineage-h" class="display-xl" data-reveal>A farm that grows its own fertility.</h2>
+        </div>
+        <blockquote class="pull" data-reveal>
+          <p>“Pay more attention and do less&nbsp;work.”</p>
+          <footer class="mono">Helen Atthowe, ecological farmer</footer>
+        </blockquote>
+        <div class="field-notes__body">
+          <p data-reveal>Helen Atthowe has farmed ecologically for decades. She spent seventeen years as a horticulture extension agent in Montana, ran Biodesign Farm there, and farmed Woodleaf Farm with her late husband Carl Rosato, an orchard first in California and then in eastern Oregon. She studied with Masanobu Fukuoka in Japan. Her book, <cite>The Ecological Farm</cite> (2023), describes a no-till, no-spray system that grows its own fertilizer.</p>
+          <p data-reveal>Her aim, in her own words, is to farm well by doing “<em>less</em> rather than <em>more</em>.” Living mulches grow between the crop rows and are mowed in place to feed the soil. Alternate rows are left standing so beneficial insects always have a home. Roots are kept growing all year to feed the soil microbes, which she calls the engine of the whole system. She sums the approach up as “one simple concept: community.”</p>
+        </div>
+
+        <figure class="soil" data-reveal>
+<pre class="soil__art mono" data-soil data-soil-rows="6,7" aria-hidden="true">    \|/   , ; , ; , ; , ;   \|/   , ; , ; , ; , ;   \|/
+   --@-- ;|;|;|;|;|;|;|;|; --@-- ;|;|;|;|;|;|;|;|; --@--
+    /|\  | | | | | | | | |  /|\  | | | | | | | | |  /|\
+  ~~~|~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~~~~~~~~~~~~~~~~|~~~
+    /|\   :  '  :  '  :  '  /|\   :  '  :  '  :  '  /|\
+   / | \ '  :  '  :  '  :  / | \ '  :  '  :  '  :  / | \
+  /  |  \-..__.-~~-.__..-~/  |  \-..__.-~~-.__..-~/  |  \
+     '      `~-.___.-~`      '      `~-.___.-~`      '   </pre>
+          <figcaption class="soil__legend mono">
+            <span><b>crop</b> · living mulch · crop</span>
+            <span>mulch, mowed in place</span>
+            <span>roots, growing all year</span>
+            <span><b>mycelium</b>, trading between them</span>
+          </figcaption>
+        </figure>
+
+        <div class="protocol" data-reveal>
+          <h3 class="protocol__title">Her system, read as a protocol</h3>
+          <dl class="protocol__map">
+            <div><dt>Living mulch between the rows</dt><dd>An always-on base layer that protects what grows on&nbsp;it.</dd></div>
+            <div><dt>Mow alternate rows, so habitat remains</dt><dd>Upgrade in stages, so the network never loses its footing.</dd></div>
+            <div><dt>Grow your own carbon</dt><dd>Fund security from the network’s own activity.</dd></div>
+            <div><dt>Habitat for beneficial insects, close to the crop</dt><dd>Fund the researchers and auditors who keep exploits in check.</dd></div>
+            <div><dt>Weed selectively</dt><dd>Light-touch governance.</dd></div>
+            <div><dt>Dynamic equilibrium</dt><dd>Fees and issuance that settle around real demand.</dd></div>
+          </dl>
+          <p class="fine">Helen Atthowe is not affiliated with the Mycelium Foundation. We cite her work because it shaped ours.</p>
+        </div>
+      </div>
+
+      <div class="register">
+        <p class="eyebrow" data-reveal>Lineage</p>
+        <h2 class="display-l" data-reveal>People who understood networks long before computers.</h2>
+        <table class="register__table" data-reveal>
+          <caption class="sr-only">Scientists, farmers and writers whose work informs the Mycelium Network, in chronological order</caption>
+          <thead><tr><th scope="col">Year</th><th scope="col">Who</th><th scope="col">What they found</th><th scope="col">What we take</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">1885</td><th scope="row">Albert Bernhard Frank</th><td>Names the <em>mycorrhiza</em>: fungus and root, feeding each other.</td><td>Mutual dependence is the unit of design.</td></tr>
+            <tr><td class="mono">1897</td><th scope="row">Beatrix Potter</th><td>Her paper on spore germination is read to the Linnean Society by a man, because women may not present.</td><td>Good ideas shouldn’t need a gatekeeper.</td></tr>
+            <tr><td class="mono">1906</td><th scope="row">George Washington Carver</th><td>Takes soil science to farmers in the Jesup Wagon, rotating crops with legumes to restore worn-out land.</td><td>Restore the commons, and teach where people&nbsp;are.</td></tr>
+            <tr><td class="mono">1940</td><th scope="row">Sir Albert Howard</th><td><cite>An Agricultural Testament</cite>, and the Law of Return.</td><td>What the network takes, it gives back.</td></tr>
+            <tr><td class="mono">1962</td><th scope="row">Rachel Carson</th><td><cite>Silent Spring</cite> traces a single intervention through an entire food&nbsp;web.</td><td>Every change travels the whole system.</td></tr>
+            <tr><td class="mono">1967</td><th scope="row">Lynn Margulis</th><td>Symbiogenesis: complex cells began as partnerships between simpler ones.</td><td>Cooperation is an engine of evolution.</td></tr>
+            <tr><td class="mono">1975</td><th scope="row">Masanobu Fukuoka</th><td><cite>The One-Straw Revolution</cite>: no tillage, no prepared fertilizer, no pesticides.</td><td>Restraint is a design decision.</td></tr>
+            <tr><td class="mono">1977</td><th scope="row">Wendell Berry</th><td><cite>The Unsettling of America</cite>, and “solving for pattern.”</td><td>Prefer solutions that solve several problems and create none.</td></tr>
+            <tr><td class="mono">1978</td><th scope="row">Bill Mollison &amp; David Holmgren</th><td>Permaculture: observe and interact, accept feedback, value the edges.</td><td>Close the loop between measurement and change.</td></tr>
+            <tr><td class="mono">1997</td><th scope="row">Suzanne Simard</th><td>Shows carbon moving both ways between birch and Douglas fir. How far such networks reach is still debated.</td><td>Exchange, not hierarchy, and honesty about what’s known.</td></tr>
+            <tr><td class="mono">2007</td><th scope="row">Bebber, Boddy, Fricker et&nbsp;al.</th><td>Fungal networks grow more efficient and more robust by reinforcing and recycling their paths.</td><td>The core of our design.</td></tr>
+            <tr><td class="mono">2010</td><th scope="row">Tero, Nakagaki et&nbsp;al.</th><td>A slime mold (not a fungus, but a kindred network) recreates the efficiency of the Tokyo rail system.</td><td>Local rules can find global answers.</td></tr>
+            <tr><td class="mono">2011</td><th scope="row">Toby Kiers et&nbsp;al.</th><td>Plants and fungi reward their best trading partners, so control runs in both directions.</td><td>Incentives that run both ways.</td></tr>
+            <tr><td class="mono">2013</td><th scope="row">Robin Wall Kimmerer</th><td><cite>Braiding Sweetgrass</cite>, and the Honorable Harvest.</td><td>Take only what is given. Give back.</td></tr>
+            <tr><td class="mono">2023</td><th scope="row">Helen Atthowe</th><td><cite>The Ecological Farm</cite>: a minimalist system that grows its own fertility.</td><td>Do less. Observe more.</td></tr>
+            <tr><td class="mono">2025</td><th scope="row">Kiers lab and colleagues</th><td>Mycorrhizal networks mapped as self-regulating travelling waves, across more than 500,000 nodes.</td><td>Growth and efficiency can coexist.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── foundation ─────────────── -->
+  <section id="foundation" class="section foundation" data-nav="Foundation" data-myc-state="fruit" aria-labelledby="foundation-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>The Foundation</p>
+      <h2 id="foundation-h" class="display-xl" data-reveal>We intend to be a nurse log.</h2>
+      <div class="split">
+        <p class="lede split__a" data-reveal>In old forests, seedlings often grow from fallen trees. As fungi break the log down, it feeds what grows from it, and in time it disappears into the forest it nourished. That is the role we intend to play.</p>
+        <p class="split__b" data-reveal>The Mycelium Foundation is a nonprofit. We support the Mycelium Network; we don’t own it, and we don’t control it. We are one participant in a larger community of researchers, builders and operators, and we’ll measure our success by how little the network needs&nbsp;us.</p>
+      </div>
+      <div class="ledger">
+        <article class="card ledger__col" data-myc-frame>
+          <p class="card__label mono">What we&nbsp;do</p>
+          <dl class="ledger__list">
+            <div><dt>Research</dt><dd>Fund and publish open research into consensus, networking and incentive design.</dd></div>
+            <div><dt>Grants</dt><dd>Support independent teams building clients, tools and public goods.</dd></div>
+            <div><dt>Stewardship</dt><dd>Keep the specification clear, neutral and documented.</dd></div>
+            <div><dt>Education</dt><dd>Explain the network plainly, to anyone who wants to understand&nbsp;it.</dd></div>
+          </dl>
+        </article>
+        <article class="card ledger__col ledger__col--not" data-myc-frame>
+          <p class="card__label mono">What we are&nbsp;not</p>
+          <dl class="ledger__list">
+            <div><dt>Not a company</dt><dd>We have no product to sell&nbsp;you.</dd></div>
+            <div><dt>Not the owner</dt><dd>The network belongs to the people who run it and build on&nbsp;it.</dd></div>
+            <div><dt>Not a kingmaker</dt><dd>We fund work, not winners.</dd></div>
+            <div><dt>Not permanent</dt><dd>If the network thrives without us, we’ve done our&nbsp;job.</dd></div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── join ─────────────── -->
+  <section id="join" class="section join" data-nav="Get involved" data-myc-state="spore" aria-labelledby="join-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Get involved</p>
+      <h2 id="join-h" class="display-xl" data-reveal>Start at the edge.</h2>
+      <p class="lede narrow" data-reveal>A mycelium grows at its tips. So does a network: through the people who arrive, look around and start building.</p>
+      <div class="nodes">
+        <article class="card node node--primary" id="n-learn" data-myc-frame data-myc-attract data-myc-link="#n-paper,#n-run,#n-grants">
+          <p class="card__label mono">Start here</p>
+          <h3 class="node__title">Learn about the network</h3>
+          <p>How the Mycelium Network is designed, and why: an interactive field guide to every part of&nbsp;it.</p>
+          <a class="btn btn--large" href="./network.html"><span>Learn more</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+        </article>
+        <article class="card node" id="n-paper" data-myc-frame data-myc-link="#n-run">
+          <p class="card__label mono">Litepaper</p>
+          <p>In preparation: a concise technical overview of the design.</p>
+          <a class="btn-bracket" href="mailto:hello@mycelium.foundation?subject=Litepaper"><span class="br" aria-hidden="true">[</span>Get notified<span class="br" aria-hidden="true">]</span></a>
+        </article>
+        <article class="card node" id="n-run" data-myc-frame data-myc-link="#n-community">
+          <p class="card__label mono">Run a node</p>
+          <p>The testnet is in preparation. Register your interest and we’ll reach out when it opens.</p>
+          <a class="btn-bracket" href="mailto:hello@mycelium.foundation?subject=Node%20operator%20interest"><span class="br" aria-hidden="true">[</span>Register interest<span class="br" aria-hidden="true">]</span></a>
+        </article>
+        <article class="card node" id="n-grants" data-myc-frame data-myc-link="#n-community">
+          <p class="card__label mono">Grants</p>
+          <p>Funding for research, clients, tooling and public goods. The first round is being designed.</p>
+          <a class="btn-bracket" href="mailto:hello@mycelium.foundation?subject=Grants"><span class="br" aria-hidden="true">[</span>Grant updates<span class="br" aria-hidden="true">]</span></a>
+        </article>
+        <article class="card node" id="n-community" data-myc-frame>
+          <p class="card__label mono">Community</p>
+          <p>Follow the research, ask questions, and help shape the principles.</p>
+          <a class="btn-bracket" href="mailto:hello@mycelium.foundation?subject=Community"><span class="br" aria-hidden="true">[</span>Join the community<span class="br" aria-hidden="true">]</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ─────────────── footer ─────────────── -->
+<footer class="foot" data-myc-state="dormant">
+  <div class="wrap">
+    <p class="wordmark" aria-hidden="true">mycelium</p>
+    <nav class="foot__cols" aria-label="Site map">
+      <div>
+        <h2 class="foot__h mono">Network</h2>
+        <ul><li><a href="./network.html">Field guide</a></li><li><a href="./litepaper.html">Litepaper</a></li><li><a href="./network.html#glossary">Glossary</a></li><li><a href="./faq.html">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Get involved</h2>
+        <ul><li><a href="./grants.html">Grants</a></li><li><a href="./research.html">Research</a></li><li><a href="./community.html">Community</a></li><li><a href="./careers.html">Careers</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Foundation</h2>
+        <ul><li><a href="./about.html">About</a></li><li><a href="./notes.html">Field notes</a></li><li><a href="./brand.html">Brand kit</a></li><li><a href="./#principles">Principles</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Contact &amp; legal</h2>
+        <ul><li><a href="mailto:hello@mycelium.foundation">hello@mycelium.foundation</a></li><li><a href="./privacy.html">Privacy</a></li><li><a href="./terms.html">Terms</a></li></ul>
+      </div>
+    </nav>
+    <div class="foot__base mono">
+      <span>© 2026 The Mycelium Foundation · a nonprofit</span>
+      <span>Names of researchers and farmers acknowledge our influences, not endorsement or affiliation.</span>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

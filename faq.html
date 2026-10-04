@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FAQ — The Mycelium Foundation</title>
+<meta name="description" content="Answers to common questions about the Mycelium Network and the Mycelium Foundation.">
+<meta name="theme-color" content="#F3F4EE">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="./site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Mycelium Foundation">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+<link rel="preload" href="./assets/StyreneA-Light-CDtqHJvh.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="./assets/StyreneA-Regular-BPtTho4G.otf" as="font" type="font/otf" crossorigin>
+<script>
+/* Before first paint, and deliberately not in the module: a returning
+   reader who chose foxfire must not see a daylight page first. Also
+   arms the intro — but restores everything if the module never runs. */
+(function () {
+  var r = document.documentElement
+  try {
+    var t = localStorage.getItem('myc-theme')
+    if (t === 'dark' || t === 'light') r.dataset.theme = t
+    else if (matchMedia('(prefers-color-scheme: dark)').matches) r.dataset.theme = 'dark'
+  } catch (e) {}
+  r.classList.add('js')
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !/[?&]static/.test(location.search)) {
+    r.classList.add('intro')
+    setTimeout(function () { if (!r.dataset.booted) r.classList.remove('intro', 'js') }, 3000)
+  }
+})()
+</script>
+
+<meta property="og:title" content="FAQ — The Mycelium Foundation">
+<meta property="og:description" content="Answers to common questions about the Mycelium Network and the Mycelium Foundation.">
+  <script type="module" crossorigin src="./assets/main-CCtCKrPR.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-CNGL3ekW.css">
+</head>
+<body data-page="faq">
+
+<canvas class="field" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- the rail: the whole site as one hypha; the current page branches into its sections -->
+<header class="rail" data-myc-ignore>
+  <a class="brand" data-myc-mask href="./" aria-label="The Mycelium Foundation, home">
+    <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 40C26 33 19 24 13 16M32 40C38 33 45 24 51 16M32 40C32.5 46 31.6 52 32 58M13 16C12.6 30 11 44 10 57M51 16C51.4 30 53 44 54 57M13 16C11 12.6 9 9.6 6.5 6.5M51 16C53 12.6 55 9.6 57.5 6.5"/><g fill="currentColor" stroke="none"><circle cx="13" cy="16" r="4.4"/><circle cx="51" cy="16" r="4.4"/><circle cx="32" cy="40" r="4.4"/></g></svg>
+    <span class="brand__name">Mycelium<br>Foundation</span>
+  </a>
+  <nav class="rail__nav" aria-label="Site">
+    <span class="rail__thread" aria-hidden="true"></span>
+    <span class="rail__pulse" aria-hidden="true">●</span>
+    <ol class="rail__pages" data-myc-mask>
+      <li data-page="home"><a href="./"><span class="rail__knot" aria-hidden="true">├─</span>Home</a></li>
+      <li data-page="network"><a href="./network.html"><span class="rail__knot" aria-hidden="true">├─</span>Field guide</a></li>
+      <li data-page="research"><a href="./research.html"><span class="rail__knot" aria-hidden="true">├─</span>Research</a></li>
+      <li data-page="grants"><a href="./grants.html"><span class="rail__knot" aria-hidden="true">├─</span>Grants</a></li>
+      <li data-page="community"><a href="./community.html"><span class="rail__knot" aria-hidden="true">├─</span>Community</a></li>
+      <li data-page="notes"><a href="./notes.html"><span class="rail__knot" aria-hidden="true">├─</span>Field notes</a></li>
+      <li data-page="about"><a href="./about.html"><span class="rail__knot" aria-hidden="true">├─</span>About</a></li>
+      <li data-page="faq"><a href="./faq.html"><span class="rail__knot" aria-hidden="true">└─</span>FAQ</a></li>
+    </ol>
+  </nav>
+</header>
+
+<div class="corner corner--tr" data-myc-ignore data-myc-mask>
+  <button class="btn-bracket theme-toggle" type="button" aria-pressed="false" aria-label="Switch to foxfire theme"><span class="br" aria-hidden="true">[</span><span class="theme-toggle__glyph" aria-hidden="true">☾</span><span class="br" aria-hidden="true">]</span></button>
+  <a class="btn btn--small" href="./network.html" data-myc-attract><span>Learn more</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+  <button class="menu-btn btn-bracket" type="button" aria-expanded="false" aria-controls="menu"><span class="br" aria-hidden="true">[</span>menu<span class="br" aria-hidden="true">]</span></button>
+</div>
+
+<div class="menu" id="menu" hidden data-myc-ignore>
+  <pre class="menu__tree" aria-hidden="true">mycelium.foundation
+ │</pre>
+  <nav aria-label="Site (menu)">
+    <ol class="menu__pages">
+      <li data-page="home"><a href="./"><span aria-hidden="true">├── </span>Home</a></li>
+      <li data-page="network"><a href="./network.html"><span aria-hidden="true">├── </span>Field guide</a></li>
+      <li data-page="research"><a href="./research.html"><span aria-hidden="true">├── </span>Research</a></li>
+      <li data-page="grants"><a href="./grants.html"><span aria-hidden="true">├── </span>Grants</a></li>
+      <li data-page="community"><a href="./community.html"><span aria-hidden="true">├── </span>Community</a></li>
+      <li data-page="notes"><a href="./notes.html"><span aria-hidden="true">├── </span>Field notes</a></li>
+      <li data-page="about"><a href="./about.html"><span aria-hidden="true">├── </span>About</a></li>
+      <li data-page="faq"><a href="./faq.html"><span aria-hidden="true">└── </span>FAQ</a></li>
+    </ol>
+  </nav>
+</div>
+
+<div class="hud" data-myc-ignore data-myc-mask data-no-spore>
+  <span class="hud__stats" aria-hidden="true">hyphae <b data-hud="hyphae">0</b> · tips <b data-hud="tips">0</b> · fusions <b data-hud="fusions">0</b> · pulses <b data-hud="pulses">0</b></span>
+  <button class="btn-bracket hud__tune" type="button" aria-label="Open the field tuner"><span class="br" aria-hidden="true">[</span>tune<span class="br" aria-hidden="true">]</span></button>
+</div>
+<p class="status" data-myc-ignore data-myc-mask><span class="status__dot" aria-hidden="true"></span>Research phase · testnet in preparation</p>
+
+
+<main id="main">
+  <section id="faq" class="section guide-hero" data-myc-state="germinate" aria-labelledby="faq-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Questions</p>
+      <h1 id="faq-h" class="guide-title" data-reveal>Frequently asked.</h1>
+      <p class="lede" data-reveal>Short answers to the questions we hear most. If yours isn’t here, write to us.</p>
+
+    </div>
+  </section>
+  <section id="network-faq" class="section" data-nav="The network" data-myc-state="mesh" aria-labelledby="nfaq-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>The network</p>
+      <h2 id="nfaq-h" class="display-xl" data-reveal>About the network.</h2>
+      <div class="faq">
+        <details class="faq__item">
+          <summary><span class="faq__q">Is the Mycelium Network live?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>No. The network is in its research phase and the testnet is in preparation. Nothing is live yet, and anyone who tells you otherwise is not speaking for us.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">Is there a token?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>No token has been announced. The design includes a native unit used for bonds and tithes, and the litepaper will describe it. The Foundation does not sell tokens, and we will never ask you to send funds to take part. Treat any offer to the contrary as a scam.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">How is it different from other networks?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>The aim is to be competitive with the most advanced networks on speed, cost and scale, with a design that is simpler to reason about and principles written down before the code. The <a href="network.html">field guide</a> explains the design direction part by part.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">Why are the components named after fungi?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>Because the vocabulary carries a model of how the network works. Every term has a conventional equivalent in the <a href="network.html#glossary">glossary</a>. There’s a longer answer in <a href="notes/why-fungi.html">this field note</a>.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">When will the litepaper be published?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>It is being written. We’ll announce it on the mailing list. You can see its planned outline on the <a href="litepaper.html">litepaper page</a>.</p></div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+  <section id="foundation-faq" class="section" data-nav="The Foundation" data-myc-state="soil" aria-labelledby="ffaq-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>The Foundation</p>
+      <h2 id="ffaq-h" class="display-xl" data-reveal>About the Foundation.</h2>
+      <div class="faq">
+        <details class="faq__item">
+          <summary><span class="faq__q">What does the Foundation do?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>Open research, grants, stewardship of the specification, and education. See <a href="about.html">about</a>.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">Does the Foundation control the network?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>No. It supports the network without owning or controlling it, and it intends to matter less over time.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">How is the Foundation funded?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>The Foundation is being formally established. Its funding sources, treasury policy and annual reports will be published as they are settled.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">Are you related to other projects called Mycelium?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>No. The Mycelium Foundation and the Mycelium Network are not affiliated with other projects or companies that use the name Mycelium.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">Is Helen Atthowe involved?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>No. We cite her work, and the work of other scientists and farmers, because it shaped ours. None of them is affiliated with the Foundation.</p></div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+  <section id="grants" class="section" data-nav="Taking part" data-myc-state="spore" aria-labelledby="gfaq-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Taking part</p>
+      <h2 id="gfaq-h" class="display-xl" data-reveal>Getting involved.</h2>
+      <div class="faq">
+        <details class="faq__item">
+          <summary><span class="faq__q">Can I run a node?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>Not yet. The testnet is in preparation. <a href="mailto:hello@mycelium.foundation?subject=Node%20operator%20interest">Register your interest</a> and we’ll reach out when it opens.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">When does the first grant round open?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>It’s being designed. <a href="grants.html">Register interest</a> and you’ll hear when it opens.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">Do grants require equity or tokens?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>No. Grants are not investments. We ask for delivery against agreed milestones and for funded work to be published openly.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">Are you hiring?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>Not yet. See <a href="careers.html">careers</a> for the roles we expect to open.</p></div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+  <section id="safety" class="section" data-nav="Safety" data-myc-state="dormant" aria-labelledby="sfaq-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Safety</p>
+      <h2 id="sfaq-h" class="display-xl" data-reveal>Staying safe.</h2>
+      <div class="faq">
+        <details class="faq__item">
+          <summary><span class="faq__q">Someone messaged me offering tokens or a presale.</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>It’s a scam. The Foundation does not sell tokens, run presales or airdrops, or contact people privately about investments.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span class="faq__q">How do I know a message is really from you?</span><span class="faq__icon mono" aria-hidden="true"></span></summary>
+          <div class="faq__a"><p>We only write from addresses at mycelium.foundation, and we will never ask for private keys, seed phrases or payments.</p></div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot" data-myc-state="dormant">
+  <div class="wrap">
+    <p class="wordmark" aria-hidden="true">mycelium</p>
+    <nav class="foot__cols" aria-label="Site map">
+      <div>
+        <h2 class="foot__h mono">Network</h2>
+        <ul><li><a href="./network.html">Field guide</a></li><li><a href="./litepaper.html">Litepaper</a></li><li><a href="./network.html#glossary">Glossary</a></li><li><a href="./faq.html">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Get involved</h2>
+        <ul><li><a href="./grants.html">Grants</a></li><li><a href="./research.html">Research</a></li><li><a href="./community.html">Community</a></li><li><a href="./careers.html">Careers</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Foundation</h2>
+        <ul><li><a href="./about.html">About</a></li><li><a href="./notes.html">Field notes</a></li><li><a href="./brand.html">Brand kit</a></li><li><a href="./#principles">Principles</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Contact &amp; legal</h2>
+        <ul><li><a href="mailto:hello@mycelium.foundation">hello@mycelium.foundation</a></li><li><a href="./privacy.html">Privacy</a></li><li><a href="./terms.html">Terms</a></li></ul>
+      </div>
+    </nav>
+    <div class="foot__base mono">
+      <span>© 2026 The Mycelium Foundation · a nonprofit</span>
+      <span>Names of researchers and farmers acknowledge our influences, not endorsement or affiliation.</span>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

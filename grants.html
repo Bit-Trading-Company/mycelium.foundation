@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grants — The Mycelium Foundation</title>
+<meta name="description" content="Grants from the Mycelium Foundation for clients, tooling, research, education and public goods. The first round is being designed.">
+<meta name="theme-color" content="#F3F4EE">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="./site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Mycelium Foundation">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+<link rel="preload" href="./assets/StyreneA-Light-CDtqHJvh.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="./assets/StyreneA-Regular-BPtTho4G.otf" as="font" type="font/otf" crossorigin>
+<script>
+/* Before first paint, and deliberately not in the module: a returning
+   reader who chose foxfire must not see a daylight page first. Also
+   arms the intro — but restores everything if the module never runs. */
+(function () {
+  var r = document.documentElement
+  try {
+    var t = localStorage.getItem('myc-theme')
+    if (t === 'dark' || t === 'light') r.dataset.theme = t
+    else if (matchMedia('(prefers-color-scheme: dark)').matches) r.dataset.theme = 'dark'
+  } catch (e) {}
+  r.classList.add('js')
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !/[?&]static/.test(location.search)) {
+    r.classList.add('intro')
+    setTimeout(function () { if (!r.dataset.booted) r.classList.remove('intro', 'js') }, 3000)
+  }
+})()
+</script>
+
+<meta property="og:title" content="Grants — The Mycelium Foundation">
+<meta property="og:description" content="Grants from the Mycelium Foundation for clients, tooling, research, education and public goods. The first round is being designed.">
+  <script type="module" crossorigin src="./assets/main-CCtCKrPR.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-CNGL3ekW.css">
+</head>
+<body data-page="grants">
+
+<canvas class="field" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- the rail: the whole site as one hypha; the current page branches into its sections -->
+<header class="rail" data-myc-ignore>
+  <a class="brand" data-myc-mask href="./" aria-label="The Mycelium Foundation, home">
+    <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 40C26 33 19 24 13 16M32 40C38 33 45 24 51 16M32 40C32.5 46 31.6 52 32 58M13 16C12.6 30 11 44 10 57M51 16C51.4 30 53 44 54 57M13 16C11 12.6 9 9.6 6.5 6.5M51 16C53 12.6 55 9.6 57.5 6.5"/><g fill="currentColor" stroke="none"><circle cx="13" cy="16" r="4.4"/><circle cx="51" cy="16" r="4.4"/><circle cx="32" cy="40" r="4.4"/></g></svg>
+    <span class="brand__name">Mycelium<br>Foundation</span>
+  </a>
+  <nav class="rail__nav" aria-label="Site">
+    <span class="rail__thread" aria-hidden="true"></span>
+    <span class="rail__pulse" aria-hidden="true">●</span>
+    <ol class="rail__pages" data-myc-mask>
+      <li data-page="home"><a href="./"><span class="rail__knot" aria-hidden="true">├─</span>Home</a></li>
+      <li data-page="network"><a href="./network.html"><span class="rail__knot" aria-hidden="true">├─</span>Field guide</a></li>
+      <li data-page="research"><a href="./research.html"><span class="rail__knot" aria-hidden="true">├─</span>Research</a></li>
+      <li data-page="grants"><a href="./grants.html"><span class="rail__knot" aria-hidden="true">├─</span>Grants</a></li>
+      <li data-page="community"><a href="./community.html"><span class="rail__knot" aria-hidden="true">├─</span>Community</a></li>
+      <li data-page="notes"><a href="./notes.html"><span class="rail__knot" aria-hidden="true">├─</span>Field notes</a></li>
+      <li data-page="about"><a href="./about.html"><span class="rail__knot" aria-hidden="true">├─</span>About</a></li>
+      <li data-page="faq"><a href="./faq.html"><span class="rail__knot" aria-hidden="true">└─</span>FAQ</a></li>
+    </ol>
+  </nav>
+</header>
+
+<div class="corner corner--tr" data-myc-ignore data-myc-mask>
+  <button class="btn-bracket theme-toggle" type="button" aria-pressed="false" aria-label="Switch to foxfire theme"><span class="br" aria-hidden="true">[</span><span class="theme-toggle__glyph" aria-hidden="true">☾</span><span class="br" aria-hidden="true">]</span></button>
+  <a class="btn btn--small" href="mailto:hello@mycelium.foundation?subject=Grants" data-myc-attract><span>Register interest</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+  <button class="menu-btn btn-bracket" type="button" aria-expanded="false" aria-controls="menu"><span class="br" aria-hidden="true">[</span>menu<span class="br" aria-hidden="true">]</span></button>
+</div>
+
+<div class="menu" id="menu" hidden data-myc-ignore>
+  <pre class="menu__tree" aria-hidden="true">mycelium.foundation
+ │</pre>
+  <nav aria-label="Site (menu)">
+    <ol class="menu__pages">
+      <li data-page="home"><a href="./"><span aria-hidden="true">├── </span>Home</a></li>
+      <li data-page="network"><a href="./network.html"><span aria-hidden="true">├── </span>Field guide</a></li>
+      <li data-page="research"><a href="./research.html"><span aria-hidden="true">├── </span>Research</a></li>
+      <li data-page="grants"><a href="./grants.html"><span aria-hidden="true">├── </span>Grants</a></li>
+      <li data-page="community"><a href="./community.html"><span aria-hidden="true">├── </span>Community</a></li>
+      <li data-page="notes"><a href="./notes.html"><span aria-hidden="true">├── </span>Field notes</a></li>
+      <li data-page="about"><a href="./about.html"><span aria-hidden="true">├── </span>About</a></li>
+      <li data-page="faq"><a href="./faq.html"><span aria-hidden="true">└── </span>FAQ</a></li>
+    </ol>
+  </nav>
+</div>
+
+<div class="hud" data-myc-ignore data-myc-mask data-no-spore>
+  <span class="hud__stats" aria-hidden="true">hyphae <b data-hud="hyphae">0</b> · tips <b data-hud="tips">0</b> · fusions <b data-hud="fusions">0</b> · pulses <b data-hud="pulses">0</b></span>
+  <button class="btn-bracket hud__tune" type="button" aria-label="Open the field tuner"><span class="br" aria-hidden="true">[</span>tune<span class="br" aria-hidden="true">]</span></button>
+</div>
+<p class="status" data-myc-ignore data-myc-mask><span class="status__dot" aria-hidden="true"></span>Research phase · testnet in preparation</p>
+
+
+<main id="main">
+  <section id="grants" class="section guide-hero" data-nav="Overview" data-myc-state="fruit" aria-labelledby="grants-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Grants</p>
+      <h1 id="grants-h" class="guide-title" data-reveal>Feed the growing tips.</h1>
+      <p class="lede" data-reveal>A mycelium sends nutrients to the edges where it’s growing. Our grants do the same: small, early support for the people building the network’s clients, tools, research and public goods.</p>
+      <p class="chip mono" data-reveal><span class="status__dot" aria-hidden="true"></span>The first grant round is being designed. Register interest below.</p>
+
+    </div>
+  </section>
+  <section id="flow" class="section" data-nav="How funding flows" data-myc-state="spore" aria-labelledby="flow-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Translocation</p>
+      <h2 id="flow-h" class="display-xl" data-reveal>How funding flows.</h2>
+      <p class="lede narrow" data-reveal>The tithe returns value to the commons. The commons funds the growing tips. Tips that deliver get more, and what they make returns to the commons as open work.</p>
+      <figure class="card scene" data-myc-frame data-scene="grantflow" data-rows="20" data-rows-narrow="20">
+        <figcaption class="scene__head">
+          <p class="card__label mono">The commons and the growing tips</p>
+          <p class="scene__hint mono">click a project to deliver a milestone</p>
+        </figcaption>
+        <div class="scene__stage"><canvas class="scene__board" aria-hidden="true"></canvas></div>
+        <p class="scene__status mono" data-status aria-live="polite">Nutrients flow from the commons to five kinds of work.</p>
+      </figure>
+
+    </div>
+  </section>
+  <section id="fund" class="section" data-nav="What we fund" data-myc-state="germinate" aria-labelledby="fund-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>What we fund</p>
+      <h2 id="fund-h" class="display-xl" data-reveal>Five kinds of work.</h2>
+      <div class="cards cards--three">
+        <article class="card" data-myc-frame>
+          <p class="card__label mono">Clients</p>
+          <h3>Independent implementations</h3>
+          <p>More than one client keeps the network diverse above and below ground. A bug in one shouldn’t take down the rest.</p>
+        </article>
+        <article class="card" data-myc-frame>
+          <p class="card__label mono">Tooling</p>
+          <h3>Tools for builders</h3>
+          <p>Libraries, debuggers, indexers, wallets and testing tools that make the network pleasant to build on.</p>
+        </article>
+        <article class="card" data-myc-frame>
+          <p class="card__label mono">Research</p>
+          <h3>Open research</h3>
+          <p>Work on the open questions, from consensus proofs to fee dynamics, published for everyone.</p>
+        </article>
+        <article class="card" data-myc-frame>
+          <p class="card__label mono">Education</p>
+          <h3>Teaching the network</h3>
+          <p>Writing, courses, translations and diagrams that help more people understand how it works.</p>
+        </article>
+        <article class="card" data-myc-frame>
+          <p class="card__label mono">Public goods</p>
+          <h3>Things everyone needs</h3>
+          <p>Infrastructure no single team would build alone, but every team depends on.</p>
+        </article>
+      </div>
+
+    </div>
+  </section>
+  <section id="principles" class="section" data-nav="Principles" data-myc-state="cord" aria-labelledby="gprinciples-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Principles</p>
+      <h2 id="gprinciples-h" class="display-xl" data-reveal>How we decide.</h2>
+      <dl class="terms">
+        <div class="term"><dt><span class="term__name">Fund work, not winners</span></dt><dd>We support the work itself, and we’re glad when several teams take different approaches to the same problem.</dd></div>
+        <div class="term"><dt><span class="term__name">Start small</span></dt><dd>Most grants begin as small seed grants. Larger support follows delivery, not promises.</dd></div>
+        <div class="term"><dt><span class="term__name">Reinforce what delivers</span></dt><dd>Like a mycelium thickening the paths that find food, funding grows toward teams that ship.</dd></div>
+        <div class="term"><dt><span class="term__name">Open by default</span></dt><dd>Grant-funded work is published under open licences, so it returns to the commons.</dd></div>
+        <div class="term"><dt><span class="term__name">Diversity above and below ground</span></dt><dd>Many teams, many places, many approaches. A monoculture fails all at once.</dd></div>
+      </dl>
+
+    </div>
+  </section>
+  <section id="process" class="section" data-nav="Process" data-myc-state="mesh" aria-labelledby="process-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Process</p>
+      <h2 id="process-h" class="display-xl" data-reveal>From spore to fruit.</h2>
+      <p class="lede narrow" data-reveal>The process we intend for the first round. It will be published in full when the round opens.</p>
+      <dl class="terms">
+        <div class="term"><dt><span class="term__n" aria-hidden="true">01</span><span class="term__name">Seed</span><span class="term__conv">inquiry</span></dt><dd>A short note: what you want to build, why it matters for the network, and who you are.</dd></div>
+        <div class="term"><dt><span class="term__n" aria-hidden="true">02</span><span class="term__name">Conversation</span><span class="term__conv">review</span></dt><dd>A call with the grants team, and a written review by people with relevant expertise.</dd></div>
+        <div class="term"><dt><span class="term__n" aria-hidden="true">03</span><span class="term__name">Field trial</span><span class="term__conv">seed grant</span></dt><dd>A small grant with a clear first milestone.</dd></div>
+        <div class="term"><dt><span class="term__n" aria-hidden="true">04</span><span class="term__name">Growth</span><span class="term__conv">follow-on grant</span></dt><dd>Larger support for teams that delivered, with milestones agreed in advance.</dd></div>
+        <div class="term"><dt><span class="term__n" aria-hidden="true">05</span><span class="term__name">Return</span><span class="term__conv">publication</span></dt><dd>The work is published openly, and what was learned is written down for the next team.</dd></div>
+      </dl>
+
+    </div>
+  </section>
+  <section id="apply" class="section" data-nav="Register interest" data-myc-state="dormant" aria-labelledby="apply-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Register interest</p>
+      <h2 id="apply-h" class="display-xl" data-reveal>Tell us what you’d build.</h2>
+      <p class="lede narrow" data-reveal>The first round isn’t open yet. Write to us now and we’ll make sure you hear when it is, and we’ll read what you send.</p>
+      <div class="actions" data-reveal><a class="btn" href="mailto:hello@mycelium.foundation?subject=Grants" data-myc-attract><span>Register interest</span><span class="btn__arrow" aria-hidden="true">→</span></a> <a class="btn-bracket" href="faq.html#grants"><span class="br" aria-hidden="true">[</span>Read the FAQ<span class="br" aria-hidden="true">]</span></a></div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot" data-myc-state="dormant">
+  <div class="wrap">
+    <p class="wordmark" aria-hidden="true">mycelium</p>
+    <nav class="foot__cols" aria-label="Site map">
+      <div>
+        <h2 class="foot__h mono">Network</h2>
+        <ul><li><a href="./network.html">Field guide</a></li><li><a href="./litepaper.html">Litepaper</a></li><li><a href="./network.html#glossary">Glossary</a></li><li><a href="./faq.html">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Get involved</h2>
+        <ul><li><a href="./grants.html">Grants</a></li><li><a href="./research.html">Research</a></li><li><a href="./community.html">Community</a></li><li><a href="./careers.html">Careers</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Foundation</h2>
+        <ul><li><a href="./about.html">About</a></li><li><a href="./notes.html">Field notes</a></li><li><a href="./brand.html">Brand kit</a></li><li><a href="./#principles">Principles</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Contact &amp; legal</h2>
+        <ul><li><a href="mailto:hello@mycelium.foundation">hello@mycelium.foundation</a></li><li><a href="./privacy.html">Privacy</a></li><li><a href="./terms.html">Terms</a></li></ul>
+      </div>
+    </nav>
+    <div class="foot__base mono">
+      <span>© 2026 The Mycelium Foundation · a nonprofit</span>
+      <span>Names of researchers and farmers acknowledge our influences, not endorsement or affiliation.</span>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

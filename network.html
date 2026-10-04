@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Mycelium Network — a field guide</title>
+<meta name="description" content="An interactive field guide to the Mycelium Network: every component named for the part of a fungus that does the same job, from spores and hyphae to Quorum Pulse consensus.">
+<meta name="theme-color" content="#F3F4EE">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="./site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Mycelium Foundation">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+<link rel="preload" href="./assets/StyreneA-Light-CDtqHJvh.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="./assets/StyreneA-Regular-BPtTho4G.otf" as="font" type="font/otf" crossorigin>
+<script>
+/* Before first paint, and deliberately not in the module: a returning
+   reader who chose foxfire must not see a daylight page first. Also
+   arms the intro — but restores everything if the module never runs. */
+(function () {
+  var r = document.documentElement
+  try {
+    var t = localStorage.getItem('myc-theme')
+    if (t === 'dark' || t === 'light') r.dataset.theme = t
+    else if (matchMedia('(prefers-color-scheme: dark)').matches) r.dataset.theme = 'dark'
+  } catch (e) {}
+  r.classList.add('js')
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !/[?&]static/.test(location.search)) {
+    r.classList.add('intro')
+    setTimeout(function () { if (!r.dataset.booted) r.classList.remove('intro', 'js') }, 3000)
+  }
+})()
+</script>
+
+<meta property="og:title" content="The Mycelium Foundation — grown, not built">
+<meta property="og:description" content="A nonprofit supporting the Mycelium Network: a decentralized network designed the way the oldest networks on Earth already work.">
+  <script type="module" crossorigin src="./assets/main-CCtCKrPR.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-CNGL3ekW.css">
+</head>
+<body data-page="network">
+
+<canvas class="field" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- the rail: the whole site as one hypha; the current page branches into its sections -->
+<header class="rail" data-myc-ignore>
+  <a class="brand" data-myc-mask href="./" aria-label="The Mycelium Foundation, home">
+    <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 40C26 33 19 24 13 16M32 40C38 33 45 24 51 16M32 40C32.5 46 31.6 52 32 58M13 16C12.6 30 11 44 10 57M51 16C51.4 30 53 44 54 57M13 16C11 12.6 9 9.6 6.5 6.5M51 16C53 12.6 55 9.6 57.5 6.5"/><g fill="currentColor" stroke="none"><circle cx="13" cy="16" r="4.4"/><circle cx="51" cy="16" r="4.4"/><circle cx="32" cy="40" r="4.4"/></g></svg>
+    <span class="brand__name">Mycelium<br>Foundation</span>
+  </a>
+  <nav class="rail__nav" aria-label="Site">
+    <span class="rail__thread" aria-hidden="true"></span>
+    <span class="rail__pulse" aria-hidden="true">●</span>
+    <ol class="rail__pages" data-myc-mask>
+      <li data-page="home"><a href="./"><span class="rail__knot" aria-hidden="true">├─</span>Home</a></li>
+      <li data-page="network"><a href="./network.html"><span class="rail__knot" aria-hidden="true">├─</span>Field guide</a></li>
+      <li data-page="research"><a href="./research.html"><span class="rail__knot" aria-hidden="true">├─</span>Research</a></li>
+      <li data-page="grants"><a href="./grants.html"><span class="rail__knot" aria-hidden="true">├─</span>Grants</a></li>
+      <li data-page="community"><a href="./community.html"><span class="rail__knot" aria-hidden="true">├─</span>Community</a></li>
+      <li data-page="notes"><a href="./notes.html"><span class="rail__knot" aria-hidden="true">├─</span>Field notes</a></li>
+      <li data-page="about"><a href="./about.html"><span class="rail__knot" aria-hidden="true">├─</span>About</a></li>
+      <li data-page="faq"><a href="./faq.html"><span class="rail__knot" aria-hidden="true">└─</span>FAQ</a></li>
+    </ol>
+  </nav>
+</header>
+
+<div class="corner corner--tr" data-myc-ignore data-myc-mask>
+  <button class="btn-bracket theme-toggle" type="button" aria-pressed="false" aria-label="Switch to foxfire theme"><span class="br" aria-hidden="true">[</span><span class="theme-toggle__glyph" aria-hidden="true">☾</span><span class="br" aria-hidden="true">]</span></button>
+  <a class="btn btn--small" href="./community.html" data-myc-attract><span>Get involved</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+  <button class="menu-btn btn-bracket" type="button" aria-expanded="false" aria-controls="menu"><span class="br" aria-hidden="true">[</span>menu<span class="br" aria-hidden="true">]</span></button>
+</div>
+
+<div class="menu" id="menu" hidden data-myc-ignore>
+  <pre class="menu__tree" aria-hidden="true">mycelium.foundation
+ │</pre>
+  <nav aria-label="Site (menu)">
+    <ol class="menu__pages">
+      <li data-page="home"><a href="./"><span aria-hidden="true">├── </span>Home</a></li>
+      <li data-page="network"><a href="./network.html"><span aria-hidden="true">├── </span>Field guide</a></li>
+      <li data-page="research"><a href="./research.html"><span aria-hidden="true">├── </span>Research</a></li>
+      <li data-page="grants"><a href="./grants.html"><span aria-hidden="true">├── </span>Grants</a></li>
+      <li data-page="community"><a href="./community.html"><span aria-hidden="true">├── </span>Community</a></li>
+      <li data-page="notes"><a href="./notes.html"><span aria-hidden="true">├── </span>Field notes</a></li>
+      <li data-page="about"><a href="./about.html"><span aria-hidden="true">├── </span>About</a></li>
+      <li data-page="faq"><a href="./faq.html"><span aria-hidden="true">└── </span>FAQ</a></li>
+    </ol>
+  </nav>
+</div>
+
+<div class="hud" data-myc-ignore data-myc-mask data-no-spore>
+  <span class="hud__stats" aria-hidden="true">hyphae <b data-hud="hyphae">0</b> · tips <b data-hud="tips">0</b> · fusions <b data-hud="fusions">0</b> · pulses <b data-hud="pulses">0</b></span>
+  <button class="btn-bracket hud__tune" type="button" aria-label="Open the field tuner"><span class="br" aria-hidden="true">[</span>tune<span class="br" aria-hidden="true">]</span></button>
+</div>
+<p class="status" data-myc-ignore data-myc-mask><span class="status__dot" aria-hidden="true"></span>Research phase · testnet in preparation</p>
+
+
+<main id="main">
+
+  <!-- ─────────────── overview ─────────────── -->
+  <section id="overview" class="section guide-hero" data-nav="Overview" data-myc-state="mesh" aria-labelledby="overview-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Field guide · The Mycelium Network</p>
+      <h1 id="overview-h" class="guide-title" data-reveal>A field guide to the network.</h1>
+      <p class="lede" data-reveal>Every component of the Mycelium Network is named for the part of a fungus that does the same job. Start at the edge, where people arrive, and work down to the substrate, where state lives.</p>
+      <p class="mono-note" data-reveal>The full architecture is being written. This guide sets out the design direction and a working vocabulary. Mechanisms are simplified, and every number in the diagrams is illustrative.</p>
+
+      <figure class="card scene" data-myc-frame data-scene="overview" data-rows="26" data-rows-narrow="24">
+        <figcaption class="scene__head">
+          <p class="card__label mono">The network at a glance</p>
+          <p class="scene__hint mono">hover a node to name it · click one to send a signal</p>
+        </figcaption>
+        <div class="scene__stage"><canvas class="scene__board" aria-hidden="true"></canvas></div>
+        <ul class="legend mono">
+          <li><b>@</b>rhizomorph · validator</li>
+          <li><b>o</b>hypha · full node</li>
+          <li><b>°</b>spore · light client</li>
+          <li><b>*</b>a signal in transit</li>
+        </ul>
+        <p class="scene__status mono" data-status aria-live="polite">Rhizomorphs mesh at the center, hyphae thread around them, spores sit at the edge. Every few seconds a ring fuses and the rhizomorphs flash together.</p>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ─────────────── organisms ─────────────── -->
+  <section id="organisms" class="section" data-nav="Organisms" data-myc-state="germinate" aria-labelledby="organisms-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Who takes part</p>
+      <h2 id="organisms-h" class="display-xl" data-reveal>Three kinds of organism.</h2>
+      <p class="lede narrow" data-reveal>A network is its participants. Ours come in three sizes, from a spore you can carry in your pocket to the cords that hold the whole thing together.</p>
+      <div class="organisms">
+        <article class="card org" data-myc-frame>
+<pre class="org__art mono" aria-hidden="true">    °
+  · ° ·
+    °</pre>
+          <h3>Spore</h3>
+          <span class="term__conv">light client</span>
+          <p>Light and portable, and able to germinate anywhere. A spore keeps only the latest spore print and asks the network for proofs, so a phone or a browser can check the network without trusting anyone.</p>
+        </article>
+        <article class="card org" data-myc-frame>
+<pre class="org__art mono" aria-hidden="true">  \  |  /
+ --- o ---
+  /  |  \</pre>
+          <h3>Hypha</h3>
+          <span class="term__conv">full node</span>
+          <p>The threads that make up the body. A hypha stores the substrate, checks every ring, and passes signals on to its neighbors. Anyone can run one.</p>
+        </article>
+        <article class="card org" data-myc-frame>
+<pre class="org__art mono" aria-hidden="true">   .-.
+==( @ )==
+   '-'</pre>
+          <h3>Rhizomorph</h3>
+          <span class="term__conv">validator</span>
+          <p>Thick, bonded cords that carry the most load. A rhizomorph commits a bond, takes part in Quorum Pulse, and proposes rings when it becomes the primordium.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── hyphal layer ─────────────── -->
+  <section id="hyphal" class="section" data-nav="Hyphal layer" data-myc-state="forage" aria-labelledby="hyphal-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>The hyphal layer · networking</p>
+      <h2 id="hyphal-h" class="display-xl" data-reveal>How peers find each other.</h2>
+      <p class="lede narrow" data-reveal>Before hyphae can share anything, they have to find each other and agree to join. The hyphal layer is how nodes discover peers, check them, connect, and pass messages on.</p>
+
+      <figure class="card scene" data-myc-frame data-scene="hyphal" data-rows="22" data-rows-narrow="22">
+        <figcaption class="scene__head">
+          <p class="card__label mono">Discovery, fusion, signalling</p>
+          <p class="scene__hint mono">click empty ground to add a peer · click a peer to signal from it</p>
+        </figcaption>
+        <div class="scene__stage"><canvas class="scene__board" aria-hidden="true"></canvas></div>
+        <div class="scene__controls">
+          <button class="btn-bracket" type="button" data-act="add"><span class="br" aria-hidden="true">[</span><span class="lbl">add a peer</span><span class="br" aria-hidden="true">]</span></button>
+          <button class="btn-bracket" type="button" data-act="add-bad"><span class="br" aria-hidden="true">[</span><span class="lbl">add an incompatible peer</span><span class="br" aria-hidden="true">]</span></button>
+          <button class="btn-bracket" type="button" data-act="signal"><span class="br" aria-hidden="true">[</span><span class="lbl">send a signal</span><span class="br" aria-hidden="true">]</span></button>
+          <button class="btn-bracket" type="button" data-act="reset"><span class="br" aria-hidden="true">[</span><span class="lbl">reset</span><span class="br" aria-hidden="true">]</span></button>
+        </div>
+        <p class="scene__status mono" data-status aria-live="polite">Links that carry more signals grow thicker. Try adding an incompatible peer.</p>
+      </figure>
+
+      <dl class="terms">
+        <div class="term"><dt><span class="term__name">Chemotropism</span><span class="term__conv">peer discovery</span></dt><dd>Hyphal tips grow toward chemical signals from compatible neighbors. New nodes find peers by following announcements, not by asking a central directory.</dd></div>
+        <div class="term"><dt><span class="term__name">Vegetative compatibility</span><span class="term__conv">handshake &amp; identity</span></dt><dd>Fungi fuse only with hyphae they recognize as compatible. Peers check each other’s identity and protocol version before they connect.</dd></div>
+        <div class="term"><dt><span class="term__name">Anastomosis</span><span class="term__conv">peer connection</span></dt><dd>Two hyphae join into one channel. Every connection adds another path, so the network becomes a mesh rather than a tree.</dd></div>
+        <div class="term"><dt><span class="term__name">Signalling</span><span class="term__conv">gossip</span></dt><dd>Each node passes a new message to a few neighbors, which pass it on again. A signal reaches the whole network in a handful of hops.</dd></div>
+        <div class="term"><dt><span class="term__name">Reinforcement</span><span class="term__conv">adaptive routing</span></dt><dd>Links that reliably carry valid messages get more bandwidth. Links that carry nothing are pruned, the way unused hyphae are recycled.</dd></div>
+        <div class="term"><dt><span class="term__name">Septum</span><span class="term__conv">peer isolation</span></dt><dd>Hyphae wall off damage with cross-walls called septa. A peer that misbehaves is sealed off, and the damage stays local.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ─────────────── quorum pulse ─────────────── -->
+  <section id="quorum" class="section" data-nav="Quorum Pulse" data-myc-state="cord" aria-labelledby="quorum-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Quorum Pulse · consensus</p>
+      <h2 id="quorum-h" class="display-xl" data-reveal>How the network agrees.</h2>
+      <p class="lede narrow" data-reveal>A fungus coordinates without a brain. Signals pass through the mycelium, and the colony acts once enough of it is signalling at once. Quorum Pulse works the same way: each round, rhizomorphs pulse their agreement, and a ring is final once two-thirds of the bond has echoed it.</p>
+
+      <figure class="card scene" data-myc-frame data-scene="quorum" data-rows="30" data-rows-narrow="24">
+        <figcaption class="scene__head">
+          <p class="card__label mono">One round at a time</p>
+          <p class="scene__hint mono">click a rhizomorph: online → offline → equivocating</p>
+        </figcaption>
+        <div class="scene__stage"><canvas class="scene__board" aria-hidden="true"></canvas></div>
+        <div class="scene__controls">
+          <button class="btn-bracket" type="button" data-act="play"><span class="br" aria-hidden="true">[</span><span class="lbl">pause</span><span class="br" aria-hidden="true">]</span></button>
+          <button class="btn-bracket" type="button" data-act="step"><span class="br" aria-hidden="true">[</span><span class="lbl">step</span><span class="br" aria-hidden="true">]</span></button>
+          <button class="btn-bracket" type="button" data-act="knock"><span class="br" aria-hidden="true">[</span><span class="lbl">take a third offline</span><span class="br" aria-hidden="true">]</span></button>
+          <button class="btn-bracket" type="button" data-act="reset"><span class="br" aria-hidden="true">[</span><span class="lbl">reset</span><span class="br" aria-hidden="true">]</span></button>
+        </div>
+        <p class="scene__status mono" data-status aria-live="polite"></p>
+      </figure>
+
+      <dl class="terms">
+        <div class="term"><dt><span class="term__n" aria-hidden="true">01</span><span class="term__name">Primordium</span><span class="term__conv">block proposer</span></dt><dd>Each round, one rhizomorph becomes the primordium, chosen at random in proportion to its bond. It is the point where the next ring begins.</dd></div>
+        <div class="term"><dt><span class="term__n" aria-hidden="true">02</span><span class="term__name">Bud</span><span class="term__conv">propose</span></dt><dd>The primordium gathers exchanges from the stream into a candidate ring and buds it out to every rhizomorph.</dd></div>
+        <div class="term"><dt><span class="term__n" aria-hidden="true">03</span><span class="term__name">Spike</span><span class="term__conv">prevote</span></dt><dd>Each rhizomorph checks the ring and fires a signed spike to every other rhizomorph.</dd></div>
+        <div class="term"><dt><span class="term__n" aria-hidden="true">04</span><span class="term__name">Echo</span><span class="term__conv">precommit</span></dt><dd>Once a rhizomorph has heard spikes from two-thirds of the bond, it echoes: a second signal that commits it to this ring.</dd></div>
+        <div class="term"><dt><span class="term__n" aria-hidden="true">05</span><span class="term__name">Fuse</span><span class="term__conv">finality</span></dt><dd>When echoes from two-thirds of the bond converge, the ring fuses onto the fairy ring. A fused ring is final and can’t be unfused.</dd></div>
+        <div class="term"><dt><span class="term__n" aria-hidden="true">06</span><span class="term__name">Dormancy</span><span class="term__conv">timeout · view change</span></dt><dd>If a round can’t reach two-thirds, it goes dormant and the next primordium tries. The network pauses rather than forks.</dd></div>
+        <div class="term"><dt><span class="term__n" aria-hidden="true">07</span><span class="term__name">Flush</span><span class="term__conv">epoch</span></dt><dd>Rhizomorphs join and leave in flushes, at fixed intervals, so the set that votes is always known in advance.</dd></div>
+        <div class="term"><dt><span class="term__n" aria-hidden="true">08</span><span class="term__name">Ring · fairy ring</span><span class="term__conv">block · the chain</span></dt><dd>Fairy rings grow outward from their center, a ring at a time. The ledger grows the same way: each fused ring around the last.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ─────────────── substrate ─────────────── -->
+  <section id="substrate" class="section" data-nav="Substrate" data-myc-state="soil" aria-labelledby="substrate-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Substrate &amp; enzymes · state and execution</p>
+      <h2 id="substrate-h" class="display-xl" data-reveal>Where state lives, and what changes it.</h2>
+      <p class="lede narrow" data-reveal>A fungus doesn’t eat its food whole. It releases enzymes into the substrate around it, and they break it down by fixed chemistry. On Mycelium, programs are enzymes, and the state they act on is the substrate.</p>
+
+      <figure class="card scene" data-myc-frame data-scene="substrate" data-rows="20" data-rows-narrow="18">
+        <figcaption class="scene__head">
+          <p class="card__label mono">The spore print</p>
+          <p class="scene__hint mono">run an enzyme · click an account to verify it</p>
+        </figcaption>
+        <div class="scene__stage"><canvas class="scene__board" aria-hidden="true"></canvas></div>
+        <div class="scene__controls">
+          <button class="btn-bracket" type="button" data-act="enzyme"><span class="br" aria-hidden="true">[</span><span class="lbl">run an enzyme</span><span class="br" aria-hidden="true">]</span></button>
+          <button class="btn-bracket" type="button" data-act="verify"><span class="br" aria-hidden="true">[</span><span class="lbl">verify as a spore</span><span class="br" aria-hidden="true">]</span></button>
+        </div>
+        <p class="scene__status mono" data-status aria-live="polite">Accounts are the leaves of a hash tree. Its root is the spore print: change any balance and the print changes.</p>
+      </figure>
+
+      <dl class="terms">
+        <div class="term"><dt><span class="term__name">Substrate</span><span class="term__conv">state</span></dt><dd>Every account, balance and program on the network: the medium everything grows in.</dd></div>
+        <div class="term"><dt><span class="term__name">Enzyme</span><span class="term__conv">smart contract</span></dt><dd>A program released into the substrate. It transforms state by fixed rules, the same way everywhere it runs.</dd></div>
+        <div class="term"><dt><span class="term__name">Exchange</span><span class="term__conv">transaction</span></dt><dd>A signed request to move value or run an enzyme. Like trade between root and fungus, it has two sides.</dd></div>
+        <div class="term"><dt><span class="term__name">Stream</span><span class="term__conv">mempool</span></dt><dd>Exchanges waiting for a ring, carried toward the next primordium the way cytoplasm streams toward a growing tip.</dd></div>
+        <div class="term"><dt><span class="term__name">Spore print</span><span class="term__conv">state root</span></dt><dd>Mycologists identify a mushroom by its spore print. The network’s state has one too: a short hash that changes if any part of the substrate changes.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ─────────────── colonies & spore bank ─────────────── -->
+  <section id="colonies" class="section" data-nav="Colonies" data-myc-state="fruit" aria-labelledby="colonies-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Colonies &amp; the spore bank · scaling and data</p>
+      <h2 id="colonies-h" class="display-xl" data-reveal>Grow at the edge, not the center.</h2>
+      <p class="lede narrow" data-reveal>A mycelium grows by adding fronts, not by enlarging a core. The network scales the same way: the substrate is divided among colonies that grow rings in parallel and trade along a shared cord.</p>
+
+      <figure class="card scene" data-myc-frame data-scene="colonies" data-rows="17" data-rows-narrow="17">
+        <figcaption class="scene__head">
+          <p class="card__label mono">Colonies in parallel</p>
+          <p class="scene__hint mono">add or remove colonies</p>
+        </figcaption>
+        <div class="scene__stage"><canvas class="scene__board" aria-hidden="true"></canvas></div>
+        <div class="scene__controls">
+          <button class="btn-bracket" type="button" data-act="fewer"><span class="br" aria-hidden="true">[</span><span class="lbl">fewer colonies</span><span class="br" aria-hidden="true">]</span></button>
+          <button class="btn-bracket" type="button" data-act="more"><span class="br" aria-hidden="true">[</span><span class="lbl">more colonies</span><span class="br" aria-hidden="true">]</span></button>
+        </div>
+        <p class="scene__status mono" data-status aria-live="polite"></p>
+      </figure>
+
+      <p class="scene-intro" data-reveal>Every ring must stay available, even when the nodes that made it go quiet. Each ring is encoded into eight spores and scattered through the network, and any four of them can rebuild it.</p>
+      <figure class="card scene" data-myc-frame data-scene="sporebank" data-rows="16" data-rows-narrow="16">
+        <figcaption class="scene__head">
+          <p class="card__label mono">The spore bank</p>
+          <p class="scene__hint mono">click spores to lose them</p>
+        </figcaption>
+        <div class="scene__stage"><canvas class="scene__board" aria-hidden="true"></canvas></div>
+        <div class="scene__controls">
+          <button class="btn-bracket" type="button" data-act="lose"><span class="br" aria-hidden="true">[</span><span class="lbl">lose two spores</span><span class="br" aria-hidden="true">]</span></button>
+          <button class="btn-bracket" type="button" data-act="scatter"><span class="br" aria-hidden="true">[</span><span class="lbl">scatter a new ring</span><span class="br" aria-hidden="true">]</span></button>
+        </div>
+        <p class="scene__status mono" data-status aria-live="polite">Eight spores, any four rebuild the ring.</p>
+      </figure>
+
+      <dl class="terms">
+        <div class="term"><dt><span class="term__name">Colony</span><span class="term__conv">shard · execution lane</span></dt><dd>A part of the network that grows its own rings in parallel with the others, under the same Quorum Pulse.</dd></div>
+        <div class="term"><dt><span class="term__name">Cord</span><span class="term__conv">cross-colony channel</span></dt><dd>The shared spine colonies use to send each other messages.</dd></div>
+        <div class="term"><dt><span class="term__name">Translocation</span><span class="term__conv">cross-colony messaging</span></dt><dd>Fungi move nutrients from where they’re found to where they’re needed. Exchanges move between colonies the same way.</dd></div>
+        <div class="term"><dt><span class="term__name">Spore bank</span><span class="term__conv">data availability · history</span></dt><dd>Soil holds banks of spores that stay viable for years. Rings are encoded into spores and scattered, so a few of them can always rebuild the whole.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ─────────────── market ─────────────── -->
+  <section id="market" class="section" data-nav="Market" data-myc-state="spore" aria-labelledby="market-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>The mycorrhizal market · economics</p>
+      <h2 id="market-h" class="display-xl" data-reveal>Exchange that runs both ways.</h2>
+      <p class="lede narrow" data-reveal>In mycorrhizal networks, plants trade carbon for nutrients, and both sides reward the partners that trade fairly. The network’s economics follow that market: what you pay keeps the network healthy, and what it earns goes back to the commons.</p>
+
+      <figure class="card scene" data-myc-frame data-scene="market" data-rows="21" data-rows-narrow="18">
+        <figcaption class="scene__head">
+          <p class="card__label mono">The tithe, in dynamic equilibrium</p>
+          <p class="scene__hint mono">move demand and watch the tithe respond</p>
+        </figcaption>
+        <div class="scene__stage"><canvas class="scene__board" aria-hidden="true"></canvas></div>
+        <div class="scene__controls">
+          <label class="slider mono">demand <input type="range" min="0" max="100" value="35" data-input="demand" aria-label="Demand for block space"><output data-output="demand">35%</output></label>
+        </div>
+        <p class="scene__status mono" data-status aria-live="polite">Rings aim to be half full. Fuller rings raise the tithe; emptier rings lower it.</p>
+      </figure>
+
+      <dl class="terms">
+        <div class="term"><dt><span class="term__name">Tithe</span><span class="term__conv">base fee</span></dt><dd>A small share of every exchange, priced by demand: it rises when rings are fuller than the target and falls when they’re emptier. Named for Atthowe and Rosato’s tithe to ecology.</dd></div>
+        <div class="term"><dt><span class="term__name">Return</span><span class="term__conv">public-goods funding</span></dt><dd>The tithe goes back to the commons, after Sir Albert Howard’s Law of Return: what the network takes, it gives back.</dd></div>
+        <div class="term"><dt><span class="term__name">Exudate</span><span class="term__conv">priority fee</span></dt><dd>Roots release exudates to attract the microbes they need. An optional extra that goes to the primordium, for exchanges that want to go first.</dd></div>
+        <div class="term"><dt><span class="term__name">Bond</span><span class="term__conv">stake</span></dt><dd>What a rhizomorph commits in order to take part. Bond weights its voice in Quorum Pulse.</dd></div>
+        <div class="term"><dt><span class="term__name">Autolysis</span><span class="term__conv">slashing</span></dt><dd>A damaged hypha digests itself. A rhizomorph that signs two different rings loses its bond.</dd></div>
+      </dl>
+      <p class="note mono-note" data-reveal>The direction is set; parameters are not. The tithe here follows a simple adjustment rule for illustration.</p>
+    </div>
+  </section>
+
+  <!-- ─────────────── seasons ─────────────── -->
+  <section id="seasons" class="section" data-nav="Seasons" data-myc-state="germinate" aria-labelledby="seasons-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Seasons &amp; weeding · governance and upgrades</p>
+      <h2 id="seasons-h" class="display-xl" data-reveal>Change slowly, and only what needs changing.</h2>
+      <p class="lede narrow" data-reveal>Our second principle is to disturb the ground as little as possible. Upgrades arrive as seasons: rare, prepared in the open, and trialled before they’re planted.</p>
+
+      <figure class="card scene" data-myc-frame data-scene="seasons" data-rows="9" data-rows-narrow="16">
+        <figcaption class="scene__head">
+          <p class="card__label mono">How a change reaches the network</p>
+          <p class="scene__hint mono">click a stage</p>
+        </figcaption>
+        <div class="scene__stage"><canvas class="scene__board" aria-hidden="true"></canvas></div>
+        <p class="scene__status mono" data-status aria-live="polite"></p>
+      </figure>
+
+      <dl class="terms">
+        <div class="term"><dt><span class="term__name">Seed</span><span class="term__conv">improvement proposal</span></dt><dd>A written proposal for a change, open to anyone, starting from observation of the running network.</dd></div>
+        <div class="term"><dt><span class="term__name">Field trial</span><span class="term__conv">testnet</span></dt><dd>Every change grows on a trial network first, under real load.</dd></div>
+        <div class="term"><dt><span class="term__name">Alternate rows</span><span class="term__conv">staged rollout</span></dt><dd>Like mowing alternate rows so habitat always remains, changes reach independent clients in turn, never all at once.</dd></div>
+        <div class="term"><dt><span class="term__name">Season</span><span class="term__conv">network upgrade</span></dt><dd>A coordinated upgrade that activates at a known flush.</dd></div>
+        <div class="term"><dt><span class="term__name">Selective weeding</span><span class="term__conv">governance</span></dt><dd>Remove only what threatens the system. Governance is narrow by design; everything else is habitat.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ─────────────── glossary ─────────────── -->
+  <section id="glossary" class="section" data-nav="Glossary" data-myc-state="dormant" aria-labelledby="glossary-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Glossary</p>
+      <h2 id="glossary-h" class="display-xl" data-reveal>From fungus to network.</h2>
+      <p class="lede narrow" data-reveal>The whole vocabulary on one page. It’s a working vocabulary, and names may change as the architecture is finalized.</p>
+      <table class="register__table glossary" data-reveal>
+        <caption class="sr-only">Mycelial names for network components and their conventional equivalents</caption>
+        <thead><tr><th scope="col">Mycelial name</th><th scope="col">Conventional term</th><th scope="col">Section</th></tr></thead>
+        <tbody>
+            <tr><td>Spore</td><td class="mono">light client</td><td class="mono"><a href="#organisms">organisms</a></td></tr>
+            <tr><td>Hypha</td><td class="mono">full node</td><td class="mono"><a href="#organisms">organisms</a></td></tr>
+            <tr><td>Rhizomorph</td><td class="mono">validator</td><td class="mono"><a href="#organisms">organisms</a></td></tr>
+            <tr><td>Chemotropism</td><td class="mono">peer discovery</td><td class="mono"><a href="#hyphal">hyphal layer</a></td></tr>
+            <tr><td>Vegetative compatibility</td><td class="mono">handshake &amp; identity check</td><td class="mono"><a href="#hyphal">hyphal layer</a></td></tr>
+            <tr><td>Anastomosis</td><td class="mono">peer connection</td><td class="mono"><a href="#hyphal">hyphal layer</a></td></tr>
+            <tr><td>Signalling</td><td class="mono">gossip</td><td class="mono"><a href="#hyphal">hyphal layer</a></td></tr>
+            <tr><td>Reinforcement</td><td class="mono">adaptive routing</td><td class="mono"><a href="#hyphal">hyphal layer</a></td></tr>
+            <tr><td>Septum</td><td class="mono">peer isolation</td><td class="mono"><a href="#hyphal">hyphal layer</a></td></tr>
+            <tr><td>Quorum Pulse</td><td class="mono">consensus protocol</td><td class="mono"><a href="#quorum">quorum pulse</a></td></tr>
+            <tr><td>Primordium</td><td class="mono">block proposer</td><td class="mono"><a href="#quorum">quorum pulse</a></td></tr>
+            <tr><td>Bud</td><td class="mono">propose</td><td class="mono"><a href="#quorum">quorum pulse</a></td></tr>
+            <tr><td>Spike</td><td class="mono">prevote</td><td class="mono"><a href="#quorum">quorum pulse</a></td></tr>
+            <tr><td>Echo</td><td class="mono">precommit</td><td class="mono"><a href="#quorum">quorum pulse</a></td></tr>
+            <tr><td>Fuse</td><td class="mono">finality</td><td class="mono"><a href="#quorum">quorum pulse</a></td></tr>
+            <tr><td>Dormancy</td><td class="mono">timeout / view change</td><td class="mono"><a href="#quorum">quorum pulse</a></td></tr>
+            <tr><td>Flush</td><td class="mono">epoch</td><td class="mono"><a href="#quorum">quorum pulse</a></td></tr>
+            <tr><td>Ring</td><td class="mono">block</td><td class="mono"><a href="#quorum">quorum pulse</a></td></tr>
+            <tr><td>Fairy ring</td><td class="mono">the chain</td><td class="mono"><a href="#quorum">quorum pulse</a></td></tr>
+            <tr><td>Substrate</td><td class="mono">state</td><td class="mono"><a href="#substrate">substrate</a></td></tr>
+            <tr><td>Enzyme</td><td class="mono">smart contract</td><td class="mono"><a href="#substrate">substrate</a></td></tr>
+            <tr><td>Exchange</td><td class="mono">transaction</td><td class="mono"><a href="#substrate">substrate</a></td></tr>
+            <tr><td>Stream</td><td class="mono">mempool</td><td class="mono"><a href="#substrate">substrate</a></td></tr>
+            <tr><td>Spore print</td><td class="mono">state root</td><td class="mono"><a href="#substrate">substrate</a></td></tr>
+            <tr><td>Colony</td><td class="mono">shard / execution lane</td><td class="mono"><a href="#colonies">colonies</a></td></tr>
+            <tr><td>Cord</td><td class="mono">cross-colony channel</td><td class="mono"><a href="#colonies">colonies</a></td></tr>
+            <tr><td>Translocation</td><td class="mono">cross-colony messaging</td><td class="mono"><a href="#colonies">colonies</a></td></tr>
+            <tr><td>Spore bank</td><td class="mono">data availability &amp; history</td><td class="mono"><a href="#colonies">colonies</a></td></tr>
+            <tr><td>Tithe</td><td class="mono">base fee</td><td class="mono"><a href="#market">market</a></td></tr>
+            <tr><td>Return</td><td class="mono">public-goods funding</td><td class="mono"><a href="#market">market</a></td></tr>
+            <tr><td>Exudate</td><td class="mono">priority fee</td><td class="mono"><a href="#market">market</a></td></tr>
+            <tr><td>Bond</td><td class="mono">stake</td><td class="mono"><a href="#market">market</a></td></tr>
+            <tr><td>Autolysis</td><td class="mono">slashing</td><td class="mono"><a href="#market">market</a></td></tr>
+            <tr><td>Seed</td><td class="mono">improvement proposal</td><td class="mono"><a href="#seasons">seasons</a></td></tr>
+            <tr><td>Field trial</td><td class="mono">testnet</td><td class="mono"><a href="#seasons">seasons</a></td></tr>
+            <tr><td>Alternate rows</td><td class="mono">staged rollout</td><td class="mono"><a href="#seasons">seasons</a></td></tr>
+            <tr><td>Season</td><td class="mono">network upgrade</td><td class="mono"><a href="#seasons">seasons</a></td></tr>
+            <tr><td>Selective weeding</td><td class="mono">governance</td><td class="mono"><a href="#seasons">seasons</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" data-myc-state="dormant">
+  <div class="wrap">
+    <p class="wordmark" aria-hidden="true">mycelium</p>
+    <nav class="foot__cols" aria-label="Site map">
+      <div>
+        <h2 class="foot__h mono">Network</h2>
+        <ul><li><a href="./network.html">Field guide</a></li><li><a href="./litepaper.html">Litepaper</a></li><li><a href="./network.html#glossary">Glossary</a></li><li><a href="./faq.html">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Get involved</h2>
+        <ul><li><a href="./grants.html">Grants</a></li><li><a href="./research.html">Research</a></li><li><a href="./community.html">Community</a></li><li><a href="./careers.html">Careers</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Foundation</h2>
+        <ul><li><a href="./about.html">About</a></li><li><a href="./notes.html">Field notes</a></li><li><a href="./brand.html">Brand kit</a></li><li><a href="./#principles">Principles</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Contact &amp; legal</h2>
+        <ul><li><a href="mailto:hello@mycelium.foundation">hello@mycelium.foundation</a></li><li><a href="./privacy.html">Privacy</a></li><li><a href="./terms.html">Terms</a></li></ul>
+      </div>
+    </nav>
+    <div class="foot__base mono">
+      <span>© 2026 The Mycelium Foundation · a nonprofit</span>
+      <span>Names of researchers and farmers acknowledge our influences, not endorsement or affiliation.</span>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

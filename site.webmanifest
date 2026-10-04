@@ -1,0 +1,1 @@
+{ "name": "The Mycelium Foundation", "short_name": "Mycelium", "icons": [{ "src": "favicon.svg", "type": "image/svg+xml", "sizes": "any" }], "theme_color": "#F3F4EE", "background_color": "#F3F4EE", "display": "standalone" }

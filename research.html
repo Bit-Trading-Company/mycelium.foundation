@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Research — The Mycelium Foundation</title>
+<meta name="description" content="Open research into the Mycelium Network: consensus, networking, economics and data availability, with the open questions we haven’t answered yet.">
+<meta name="theme-color" content="#F3F4EE">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="./site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Mycelium Foundation">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
+<link rel="preload" href="./assets/StyreneA-Light-CDtqHJvh.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="./assets/StyreneA-Regular-BPtTho4G.otf" as="font" type="font/otf" crossorigin>
+<script>
+/* Before first paint, and deliberately not in the module: a returning
+   reader who chose foxfire must not see a daylight page first. Also
+   arms the intro — but restores everything if the module never runs. */
+(function () {
+  var r = document.documentElement
+  try {
+    var t = localStorage.getItem('myc-theme')
+    if (t === 'dark' || t === 'light') r.dataset.theme = t
+    else if (matchMedia('(prefers-color-scheme: dark)').matches) r.dataset.theme = 'dark'
+  } catch (e) {}
+  r.classList.add('js')
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !/[?&]static/.test(location.search)) {
+    r.classList.add('intro')
+    setTimeout(function () { if (!r.dataset.booted) r.classList.remove('intro', 'js') }, 3000)
+  }
+})()
+</script>
+
+<meta property="og:title" content="Research — The Mycelium Foundation">
+<meta property="og:description" content="Open research into the Mycelium Network: consensus, networking, economics and data availability, with the open questions we haven’t answered yet.">
+  <script type="module" crossorigin src="./assets/main-CCtCKrPR.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-CNGL3ekW.css">
+</head>
+<body data-page="research">
+
+<canvas class="field" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- the rail: the whole site as one hypha; the current page branches into its sections -->
+<header class="rail" data-myc-ignore>
+  <a class="brand" data-myc-mask href="./" aria-label="The Mycelium Foundation, home">
+    <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 40C26 33 19 24 13 16M32 40C38 33 45 24 51 16M32 40C32.5 46 31.6 52 32 58M13 16C12.6 30 11 44 10 57M51 16C51.4 30 53 44 54 57M13 16C11 12.6 9 9.6 6.5 6.5M51 16C53 12.6 55 9.6 57.5 6.5"/><g fill="currentColor" stroke="none"><circle cx="13" cy="16" r="4.4"/><circle cx="51" cy="16" r="4.4"/><circle cx="32" cy="40" r="4.4"/></g></svg>
+    <span class="brand__name">Mycelium<br>Foundation</span>
+  </a>
+  <nav class="rail__nav" aria-label="Site">
+    <span class="rail__thread" aria-hidden="true"></span>
+    <span class="rail__pulse" aria-hidden="true">●</span>
+    <ol class="rail__pages" data-myc-mask>
+      <li data-page="home"><a href="./"><span class="rail__knot" aria-hidden="true">├─</span>Home</a></li>
+      <li data-page="network"><a href="./network.html"><span class="rail__knot" aria-hidden="true">├─</span>Field guide</a></li>
+      <li data-page="research"><a href="./research.html"><span class="rail__knot" aria-hidden="true">├─</span>Research</a></li>
+      <li data-page="grants"><a href="./grants.html"><span class="rail__knot" aria-hidden="true">├─</span>Grants</a></li>
+      <li data-page="community"><a href="./community.html"><span class="rail__knot" aria-hidden="true">├─</span>Community</a></li>
+      <li data-page="notes"><a href="./notes.html"><span class="rail__knot" aria-hidden="true">├─</span>Field notes</a></li>
+      <li data-page="about"><a href="./about.html"><span class="rail__knot" aria-hidden="true">├─</span>About</a></li>
+      <li data-page="faq"><a href="./faq.html"><span class="rail__knot" aria-hidden="true">└─</span>FAQ</a></li>
+    </ol>
+  </nav>
+</header>
+
+<div class="corner corner--tr" data-myc-ignore data-myc-mask>
+  <button class="btn-bracket theme-toggle" type="button" aria-pressed="false" aria-label="Switch to foxfire theme"><span class="br" aria-hidden="true">[</span><span class="theme-toggle__glyph" aria-hidden="true">☾</span><span class="br" aria-hidden="true">]</span></button>
+  <a class="btn btn--small" href="./network.html" data-myc-attract><span>Learn more</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+  <button class="menu-btn btn-bracket" type="button" aria-expanded="false" aria-controls="menu"><span class="br" aria-hidden="true">[</span>menu<span class="br" aria-hidden="true">]</span></button>
+</div>
+
+<div class="menu" id="menu" hidden data-myc-ignore>
+  <pre class="menu__tree" aria-hidden="true">mycelium.foundation
+ │</pre>
+  <nav aria-label="Site (menu)">
+    <ol class="menu__pages">
+      <li data-page="home"><a href="./"><span aria-hidden="true">├── </span>Home</a></li>
+      <li data-page="network"><a href="./network.html"><span aria-hidden="true">├── </span>Field guide</a></li>
+      <li data-page="research"><a href="./research.html"><span aria-hidden="true">├── </span>Research</a></li>
+      <li data-page="grants"><a href="./grants.html"><span aria-hidden="true">├── </span>Grants</a></li>
+      <li data-page="community"><a href="./community.html"><span aria-hidden="true">├── </span>Community</a></li>
+      <li data-page="notes"><a href="./notes.html"><span aria-hidden="true">├── </span>Field notes</a></li>
+      <li data-page="about"><a href="./about.html"><span aria-hidden="true">├── </span>About</a></li>
+      <li data-page="faq"><a href="./faq.html"><span aria-hidden="true">└── </span>FAQ</a></li>
+    </ol>
+  </nav>
+</div>
+
+<div class="hud" data-myc-ignore data-myc-mask data-no-spore>
+  <span class="hud__stats" aria-hidden="true">hyphae <b data-hud="hyphae">0</b> · tips <b data-hud="tips">0</b> · fusions <b data-hud="fusions">0</b> · pulses <b data-hud="pulses">0</b></span>
+  <button class="btn-bracket hud__tune" type="button" aria-label="Open the field tuner"><span class="br" aria-hidden="true">[</span>tune<span class="br" aria-hidden="true">]</span></button>
+</div>
+<p class="status" data-myc-ignore data-myc-mask><span class="status__dot" aria-hidden="true"></span>Research phase · testnet in preparation</p>
+
+
+<main id="main">
+  <section id="research" class="section guide-hero" data-nav="Overview" data-myc-state="mesh" aria-labelledby="research-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Research</p>
+      <h1 id="research-h" class="guide-title" data-reveal>Open questions, worked on in the open.</h1>
+      <p class="lede" data-reveal>The Mycelium Network is in research. That isn’t a disclaimer; it’s the phase where the important decisions get made. This is what we’re studying, how, and what we don’t yet know.</p>
+
+    </div>
+  </section>
+  <section id="adaptive" class="section" data-nav="Adaptive networks" data-myc-state="forage" aria-labelledby="adaptive-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>A working model</p>
+      <h2 id="adaptive-h" class="display-xl" data-reveal>Networks that find their own shape.</h2>
+      <p class="lede narrow" data-reveal>In 2010, Tero and colleagues showed that a simple rule — tubes that carry flow thicken, tubes that don’t wither — lets a slime mold build a network as efficient and fault-tolerant as a rail system. The diagram below runs that rule.</p>
+      <figure class="card scene" data-myc-frame data-scene="physarum" data-rows="22" data-rows-narrow="20">
+        <figcaption class="scene__head">
+          <p class="card__label mono">Adaptive transport, after Tero et al. (2010)</p>
+          <p class="scene__hint mono">click to add a food source</p>
+        </figcaption>
+        <div class="scene__stage"><canvas class="scene__board" aria-hidden="true"></canvas></div>
+        <div class="scene__controls">
+          <button class="btn-bracket" type="button" data-act="food"><span class="br" aria-hidden="true">[</span><span class="lbl">add a food source</span><span class="br" aria-hidden="true">]</span></button>
+          <button class="btn-bracket" type="button" data-act="reset"><span class="br" aria-hidden="true">[</span><span class="lbl">reset</span><span class="br" aria-hidden="true">]</span></button>
+        </div>
+        <ul class="legend mono"><li><b>[#]</b>food source</li><li><b>=</b>tube carrying flow (bold = reinforced)</li><li><b>.</b>withering tube</li><li><b>*</b>flow</li></ul>
+        <p class="scene__status mono" data-status aria-live="polite">Every tube starts equal. Watch the network decide which ones matter.</p>
+      </figure>
+      <p class="note" data-reveal>A slime mold is not a fungus, but fungal networks follow the same principle: Bebber and colleagues (2007) found that a woodland fungus became more efficient and more robust as it grew by reinforcing and recycling its paths. Mycelium’s routing and fee design both start from this idea.</p>
+
+    </div>
+  </section>
+  <section id="areas" class="section" data-nav="Areas" data-myc-state="cord" aria-labelledby="areas-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Research areas</p>
+      <h2 id="areas-h" class="display-xl" data-reveal>Where we’re working.</h2>
+      <dl class="terms">
+        <div class="term"><dt><span class="term__name">Quorum Pulse</span><span class="term__conv">consensus</span></dt><dd>Safety and liveness under partial synchrony, proposer selection, and how fast a ring can fuse without giving up two-thirds agreement.</dd></div>
+        <div class="term"><dt><span class="term__name">The hyphal layer</span><span class="term__conv">networking</span></dt><dd>Peer discovery that resists eclipse attacks, gossip that stays efficient as the network grows, and peer scoring that reinforces honest links.</dd></div>
+        <div class="term"><dt><span class="term__name">The mycorrhizal market</span><span class="term__conv">economics</span></dt><dd>How the tithe should respond to bursty demand, how bonds should be sized, and how value returns to the commons without capture.</dd></div>
+        <div class="term"><dt><span class="term__name">The spore bank</span><span class="term__conv">data availability</span></dt><dd>Erasure coding and sampling, so that spores can check that a ring is available without downloading it.</dd></div>
+        <div class="term"><dt><span class="term__name">Colonies</span><span class="term__conv">scaling</span></dt><dd>Parallel execution and cross-colony messages that stay simple to reason about.</dd></div>
+        <div class="term"><dt><span class="term__name">Specification</span><span class="term__conv">formal methods</span></dt><dd>A specification precise enough to be checked by machine, before it’s implemented by people.</dd></div>
+      </dl>
+
+    </div>
+  </section>
+  <section id="questions" class="section" data-nav="Open questions" data-myc-state="soil" aria-labelledby="questions-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Open questions</p>
+      <h2 id="questions-h" class="display-xl" data-reveal>What we don’t know yet.</h2>
+      <p class="lede narrow" data-reveal>Good research starts by writing down the questions honestly. These are some of ours. If you’re working on any of them, we want to hear from you.</p>
+      <ol class="questions">
+        <li data-reveal><span class="questions__n mono">Q1</span><p>What is the shortest time to finality Quorum Pulse can reach while keeping its two-thirds guarantee, on real global networks rather than in simulation?</p></li>
+        <li data-reveal><span class="questions__n mono">Q2</span><p>Can reinforcement-style peer scoring improve gossip efficiency without making the network easier to eclipse?</p></li>
+        <li data-reveal><span class="questions__n mono">Q3</span><p>How should a demand-priced tithe behave when demand arrives in bursts, and what does “dynamic equilibrium” mean when it does?</p></li>
+        <li data-reveal><span class="questions__n mono">Q4</span><p>How large should the bond be for a rhizomorph, so that participation stays open while equivocation stays expensive?</p></li>
+        <li data-reveal><span class="questions__n mono">Q5</span><p>What is the simplest cross-colony messaging model that developers can reason about without surprises?</p></li>
+        <li data-reveal><span class="questions__n mono">Q6</span><p>Where do biological analogies help network design, and where do they mislead? We want to know both.</p></li>
+      </ol>
+
+    </div>
+  </section>
+  <section id="how" class="section" data-nav="How we work" data-myc-state="fruit" aria-labelledby="how-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>How we work</p>
+      <h2 id="how-h" class="display-xl" data-reveal>Specification before code.</h2>
+      <dl class="terms">
+        <div class="term"><dt><span class="term__name">Open by default</span></dt><dd>Research, data and results are published openly, under licences that let anyone build on them.</dd></div>
+        <div class="term"><dt><span class="term__name">Negative results count</span></dt><dd>An idea that didn’t work is still knowledge. We publish those too.</dd></div>
+        <div class="term"><dt><span class="term__name">Reproducible</span></dt><dd>Simulations and benchmarks ship with the code and data to rerun them.</dd></div>
+        <div class="term"><dt><span class="term__name">Honest analogies</span></dt><dd>Biology inspires the design; it doesn’t justify it. Every mechanism has to stand on its own engineering.</dd></div>
+      </dl>
+      <div class="actions" data-reveal><a class="btn" href="mailto:hello@mycelium.foundation?subject=Research%20collaboration"><span>Propose a collaboration</span><span class="btn__arrow" aria-hidden="true">→</span></a> <a class="btn-bracket" href="grants.html"><span class="br" aria-hidden="true">[</span>Research grants<span class="br" aria-hidden="true">]</span></a></div>
+
+    </div>
+  </section>
+  <section id="reading" class="section" data-nav="Reading list" data-myc-state="dormant" aria-labelledby="reading-h">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Reading list</p>
+      <h2 id="reading-h" class="display-xl" data-reveal>The work we stand on.</h2>
+      <ol class="reading mono" data-reveal>
+        <li>Bebber, Hynes, Darrah, Boddy &amp; Fricker (2007). Biological solutions to transport network design. <cite>Proc. R. Soc. B</cite> 274.</li>
+        <li>Tero et al. (2010). Rules for biologically inspired adaptive network design. <cite>Science</cite> 327.</li>
+        <li>Fricker, Heaton, Jones &amp; Boddy (2017). The mycelium as a network. <cite>Microbiology Spectrum</cite>.</li>
+        <li>Kiers et al. (2011). Reciprocal rewards stabilize cooperation in the mycorrhizal symbiosis. <cite>Science</cite> 333.</li>
+        <li>Glass et al. (2004). Hyphal homing, fusion and mycelial interconnectedness. <cite>Trends in Microbiology</cite>.</li>
+        <li>Simard et al. (1997), <cite>Nature</cite> 388; and Karst, Jones &amp; Hoeksema (2023), <cite>Nature Ecology &amp; Evolution</cite> 7, for the debate.</li>
+        <li>Kiers lab and colleagues (2025). Mycorrhizal networks as self-regulating travelling waves. <cite>Nature</cite>.</li>
+        <li>Atthowe, H. (2023). <cite>The Ecological Farm</cite>. Chelsea Green.</li>
+      </ol>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot" data-myc-state="dormant">
+  <div class="wrap">
+    <p class="wordmark" aria-hidden="true">mycelium</p>
+    <nav class="foot__cols" aria-label="Site map">
+      <div>
+        <h2 class="foot__h mono">Network</h2>
+        <ul><li><a href="./network.html">Field guide</a></li><li><a href="./litepaper.html">Litepaper</a></li><li><a href="./network.html#glossary">Glossary</a></li><li><a href="./faq.html">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Get involved</h2>
+        <ul><li><a href="./grants.html">Grants</a></li><li><a href="./research.html">Research</a></li><li><a href="./community.html">Community</a></li><li><a href="./careers.html">Careers</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Foundation</h2>
+        <ul><li><a href="./about.html">About</a></li><li><a href="./notes.html">Field notes</a></li><li><a href="./brand.html">Brand kit</a></li><li><a href="./#principles">Principles</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot__h mono">Contact &amp; legal</h2>
+        <ul><li><a href="mailto:hello@mycelium.foundation">hello@mycelium.foundation</a></li><li><a href="./privacy.html">Privacy</a></li><li><a href="./terms.html">Terms</a></li></ul>
+      </div>
+    </nav>
+    <div class="foot__base mono">
+      <span>© 2026 The Mycelium Foundation · a nonprofit</span>
+      <span>Names of researchers and farmers acknowledge our influences, not endorsement or affiliation.</span>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#0D1610" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <title>The Mycelium Foundation</title>
+  <path d="M32 40C26 33 19 24 13 16M32 40C38 33 45 24 51 16M32 40C32.5 46 31.6 52 32 58M13 16C12.6 30 11 44 10 57M51 16C51.4 30 53 44 54 57M13 16C11 12.6 9 9.6 6.5 6.5M51 16C53 12.6 55 9.6 57.5 6.5"/>
+  <g fill="#0D1610" stroke="none"><circle cx="13" cy="16" r="4"/><circle cx="51" cy="16" r="4"/><circle cx="32" cy="40" r="4"/></g>
+</svg>
